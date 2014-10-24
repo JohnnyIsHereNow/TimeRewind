@@ -1,0 +1,114 @@
+fileFormatVersion: 2
+guid: e22e7821a55e1fe438e81d66a5b54187
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Player2
+    21300002: Player2_0
+    21300004: Player2_1
+    21300006: Player2_2
+    21300008: Player2_3
+    21300010: Player2_4
+    21300012: Player2_5
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 500
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Player2_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2099
+        width: 1344
+        height: 1597
+      alignment: 9
+      pivot: {x: .527120471, y: .0853665173}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Player2_1
+      rect:
+        serializedVersion: 2
+        x: 1464
+        y: 3237
+        width: 508
+        height: 372
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Player2_2
+      rect:
+        serializedVersion: 2
+        x: 2076
+        y: 2300
+        width: 348
+        height: 1014
+      alignment: 9
+      pivot: {x: .482543945, y: .811535716}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Player2_3
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 13
+        width: 1061
+        height: 1920
+      alignment: 9
+      pivot: {x: .517176986, y: .167776063}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Player2_4
+      rect:
+        serializedVersion: 2
+        x: 1494
+        y: 1341
+        width: 923
+        height: 718
+      alignment: 9
+      pivot: {x: .177494466, y: .75382787}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Player2_5
+      rect:
+        serializedVersion: 2
+        x: 1690
+        y: 0
+        width: 624
+        height: 984
+      alignment: 9
+      pivot: {x: .353967905, y: .858076155}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 

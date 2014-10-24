@@ -1,0 +1,201 @@
+fileFormatVersion: 2
+guid: c332bb2b232577e41a36a2a32977bf2d
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: butoane_0
+    21300002: butoane_1
+    21300004: butoane_2
+    21300006: butoane_3
+    21300008: butoane_4
+    21300010: butoane_5
+    21300012: butoane_6
+    21300014: butoane_7
+    21300016: butoane_8
+    21300018: butoane_9
+    21300020: butoane_10
+    21300022: butoane_11
+    21300024: butoane_12
+    21300026: butoane_13
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: 5
+  maxTextureSize: 4096
+  textureSettings:
+    filterMode: 0
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: butoane_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 422
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: butoane_1
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 422
+        width: 403
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: butoane_2
+      rect:
+        serializedVersion: 2
+        x: 833
+        y: 408
+        width: 401
+        height: 403
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: butoane_3
+      rect:
+        serializedVersion: 2
+        x: 1248
+        y: 415
+        width: 402
+        height: 402
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: butoane_4
+      rect:
+        serializedVersion: 2
+        x: 1665
+        y: 422
+        width: 402
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: butoane_5
+      rect:
+        serializedVersion: 2
+        x: 2082
+        y: 408
+        width: 402
+        height: 403
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: butoane_6
+      rect:
+        serializedVersion: 2
+        x: 2500
+        y: 408
+        width: 401
+        height: 403
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: butoane_7
+      rect:
+        serializedVersion: 2
+        x: 2916
+        y: 408
+        width: 401
+        height: 403
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: butoane_8
+      rect:
+        serializedVersion: 2
+        x: 3332
+        y: 7
+        width: 403
+        height: 804
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: butoane_9
+      rect:
+        serializedVersion: 2
+        x: 3749
+        y: 408
+        width: 401
+        height: 403
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: butoane_10
+      rect:
+        serializedVersion: 2
+        x: 1665
+        y: 7
+        width: 402
+        height: 402
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: butoane_11
+      rect:
+        serializedVersion: 2
+        x: 2083
+        y: 0
+        width: 402
+        height: 402
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: butoane_12
+      rect:
+        serializedVersion: 2
+        x: 2496
+        y: 0
+        width: 403
+        height: 401
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: butoane_13
+      rect:
+        serializedVersion: 2
+        x: 2914
+        y: 2
+        width: 401
+        height: 402
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
