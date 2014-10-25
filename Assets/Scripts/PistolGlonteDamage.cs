@@ -11,9 +11,17 @@ public class PistolGlonteDamage : MonoBehaviour {
 	private EnemyOne eo;
 	public GameObject boom;
 	private int damage= 20;
+	private GameObject moveleft;
+	private MoveLeft moveleftbutton;
+	private GameObject moveright;
+	private MoveRight moverightbutton;
 	// Use this for initialization
 	void Start () {
 		player = GameObject.Find ("Player");
+		moveleft = GameObject.Find ("left");
+		moveleftbutton = moveleft.GetComponent<MoveLeft> ();
+		moveright = GameObject.Find ("right");
+		moverightbutton = moveright.GetComponent<MoveRight> ();
 
 	}
 	
@@ -21,9 +29,9 @@ public class PistolGlonteDamage : MonoBehaviour {
 	void Update () {
 		if (player.transform.localScale.x == -1)
 						direction = -1;
-		if (Input.GetKey ("d"))
+		if (Input.GetKey ("d") || moverightbutton.getMoveRight())
 			direction = 1;
-		if (Input.GetKey ("a"))
+		if (Input.GetKey ("a") || moveleftbutton.getMoveLeft())
 			direction = -1;
 		time = time+Time.deltaTime;
 		if (time > maxTime)

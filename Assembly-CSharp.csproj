@@ -47,6 +47,11 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\BackToMenu.cs" />
+     <Compile Include="Assets\Scripts\Enemies\ArrowGoLeft.cs" />
+     <Compile Include="Assets\Scripts\Enemies\ArrowGoRight.cs" />
+     <Compile Include="Assets\Scripts\Enemies\BowShootLeft.cs" />
+     <Compile Include="Assets\Scripts\Enemies\BowShootRight.cs" />
+     <Compile Include="Assets\Scripts\Enemies\NinjaStarMovement.cs" />
      <Compile Include="Assets\Scripts\EnemyOne.cs" />
      <Compile Include="Assets\Scripts\EnterLevel1.cs" />
      <Compile Include="Assets\Scripts\FollowPlayer.cs" />
@@ -56,6 +61,11 @@
      <Compile Include="Assets\Scripts\MovePlatform.cs" />
      <Compile Include="Assets\Scripts\Other\AfterChestOpens.cs" />
      <Compile Include="Assets\Scripts\Other\AttackButton.cs" />
+     <Compile Include="Assets\Scripts\Other\ButtonActions.cs" />
+     <Compile Include="Assets\Scripts\Other\Buttons\IfPlayerDead.cs" />
+     <Compile Include="Assets\Scripts\Other\Buttons\ShowShield1.cs" />
+     <Compile Include="Assets\Scripts\Other\Buttons\ShowShield2.cs" />
+     <Compile Include="Assets\Scripts\Other\Buttons\ShowShoes.cs" />
      <Compile Include="Assets\Scripts\Other\DestroyBoom.cs" />
      <Compile Include="Assets\Scripts\Other\DisplayDust.cs" />
      <Compile Include="Assets\Scripts\Other\DustScript.cs" />
@@ -69,8 +79,12 @@
      <Compile Include="Assets\Scripts\Other\PauseButtonScript.cs" />
      <Compile Include="Assets\Scripts\Other\ReplayLevel.cs" />
      <Compile Include="Assets\Scripts\Other\RewindButton.cs" />
+     <Compile Include="Assets\Scripts\Other\RotateLeftAndRight.cs" />
+     <Compile Include="Assets\Scripts\Other\RotateWhileNotPlayer.cs" />
      <Compile Include="Assets\Scripts\Other\ShoesPowerUp.cs" />
+     <Compile Include="Assets\Scripts\Other\ShowOnlyIfPhone.cs" />
      <Compile Include="Assets\Scripts\PistolGlonteDamage.cs" />
+     <Compile Include="Assets\Scripts\PistolGlonteDamage2.cs" />
      <Compile Include="Assets\Scripts\PlayGame.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Scripts\PlayerForTheLevelsPosition.cs" />

@@ -1,19 +1,17 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class DisplayDust : MonoBehaviour {
-		private Animator anim;
-		private GameObject textG;
-		private GUIText text;
-		// Use this for initialization
-		void Start () {
-		textG = GameObject.Find ("ShowTheDust");
-			text = textG.GetComponent<GUIText> (); 
-			anim = GetComponent<Animator> ();
-		}
-		
-		// Update is called once per frame
-		void Update () {
-			text.text ="Dust: "+ PlayerPrefs.GetInt ("dust").ToString ();
-		}
+	private Text text;
+	// Use this for initialization
+	void Start () {
+		text=GetComponent<Text>();
+	}
+	
+	// Update is called once per frame
+	void Update () {
+		text.text=""+PlayerPrefs.GetInt("dust");
+	//	Debug.Log (PlayerPrefs.GetInt ("dust"));
+	}
 }

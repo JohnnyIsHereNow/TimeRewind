@@ -4,6 +4,10 @@ using System.Collections;
 public class FunctionsToBeCalled : MonoBehaviour {
 
 	public void PlayButton(){
+		if(!PlayerPrefs.HasKey("dust")) PlayerPrefs.SetInt("dust",0);
+		if(!PlayerPrefs.HasKey("NumberOfShields1")) PlayerPrefs.SetInt("NumberOfShields1",1);
+		if(!PlayerPrefs.HasKey("NumberOfShields2")) PlayerPrefs.SetInt("NumberOfShields2",1);
+		if(!PlayerPrefs.HasKey("NumberOfShoes")) PlayerPrefs.SetInt("NumberOfShoes",1);
 		Application.LoadLevel ("loadWorldScene");
 	}
 	public void OpenFacebook(){
@@ -16,6 +20,10 @@ public class FunctionsToBeCalled : MonoBehaviour {
 		Application.LoadLevel ("options");
 	}
 	public void LoadCharacterSelect(){
+		if(!PlayerPrefs.HasKey("dust")) PlayerPrefs.SetInt("dust",0);
+		if(!PlayerPrefs.HasKey("NumberOfShields1")) PlayerPrefs.SetInt("NumberOfShields1",1);
+		if(!PlayerPrefs.HasKey("NumberOfShields2")) PlayerPrefs.SetInt("NumberOfShields2",1);
+		if(!PlayerPrefs.HasKey("NumberOfShoes")) PlayerPrefs.SetInt("NumberOfShoes",1);
 		Application.LoadLevel ("characterSelect");
 	}
 	public void LoadLevel1Levels(){

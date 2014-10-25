@@ -6,12 +6,26 @@ public class EnemyOne : MonoBehaviour {
 	private float speed;
 	private bool moveEnemy;
 	public GameObject boom;
-
-	// Use this for initialization
+	public Camera myCamera;
+	private Vector2 vec;
+	private GUIStyle currentStyle=null;
+		// Use this for initialization
 	void Start () {
 		moveEnemy=false;
 		life = 10;
 		speed= 5f;
+		myCamera=FindObjectOfType<Camera>();
+	}
+
+	void OnGUI(){
+		InitStyles();
+		if(life>0){
+			vec=myCamera.WorldToScreenPoint(transform.position);
+			GUI.backgroundColor = Color.red;
+			GUI.Box(new Rect(vec.x-life*10/2,Screen.height-(vec.y+45),life*10,10),"a",currentStyle);
+
+		}
+
 	}
 	public void setLife(int minusLife){
 		life-=minusLife;
@@ -46,6 +60,26 @@ public class EnemyOne : MonoBehaviour {
 	public void destroyMe(){
 		Instantiate(boom, transform.position,Quaternion.identity);
 		Destroy (gameObject);
+	}private void InitStyles()
+	{
+		if( currentStyle == null )
+		{
+			currentStyle = new GUIStyle( GUI.skin.box );
+			currentStyle.normal.background = MakeTex( life*10,10, new Color( 1f, 0f, 0f, 0.5f ) );
+		}
 	}
-
+	
+	private Texture2D MakeTex( int width, int height, Color col )
+	{
+		Color[] pix = new Color[width * height];
+		for( int i = 0; i < pix.Length; ++i )
+		{
+			pix[ i ] = col;
+		}
+		Texture2D result = new Texture2D( width, height );
+		result.SetPixels( pix );
+		result.Apply();
+		return result;
+	}
+	
 }

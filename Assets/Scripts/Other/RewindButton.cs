@@ -8,7 +8,7 @@ public class RewindButton : MonoBehaviour {
 
 
 
-		Debug.Log("RewindValue: "+getRewind());
+		//Debug.Log("RewindValue: "+getRewind());
 		foreach (Touch touch in Input.touches)
 		if (guiTexture.HitTest(touch.position) && touch.phase!=TouchPhase.Ended){
 			rewind=true;

@@ -12,36 +12,38 @@ public class MoveObjectByDrag : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-#if !UNITY_STANDALONE
+#if !UNITY_STANDALONE 
 		if(Input.touchCount>0){
-		touchPost = camera.ScreenToWorldPoint(Input.touches[0].position);
-		hit=Physics2D.Raycast(camera.ScreenToWorldPoint(Input.touches[0].position), Vector2.zero);
-			if(hit!=null && hit.transform!=null && (hit.transform.name=="box" || hit.transform.tag=="Enemy")){
+			hit=Physics2D.Raycast(camera.ScreenToWorldPoint(Input.touches[0].position), Vector2.zero);
+			touchPost = camera.ScreenToWorldPoint(Input.touches[0].position);
+		}
+			
+			if(hit!=null && hit.transform!=null && (hit.transform.name=="box")){
+				if(Input.GetTouch(0).phase !=TouchPhase.Began){
 			original=hit.transform.position;
 			original.x=touchPost.x;
 			original.y=touchPost.y;
 			hit.transform.position=original;
-		}
-		}
-#endif
-
-
-		#if UNITY_STANDALONE
-	if(Input.GetMouseButton(0)){
-			touchPost = camera.ScreenToWorldPoint(Input.mousePosition);
-			hit=Physics2D.Raycast(camera.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
-			if(hit !=null && hit.transform !=null)
-			                      {
-				Debug.Log(hit.transform.name);
-	}
-			if(hit!=null && hit.transform!=null && hit.transform.name=="box"){
-				original=hit.transform.position;
-				original.x=touchPost.x;
-				original.y=touchPost.y;
-				hit.transform.position=original;
 			}
-}
+		}
 #endif
+
+
+		#if UNITY_STANDALONE || UNITY_EDITOR
+	if(Input.GetMouseButton(0)){
+			hit=Physics2D.Raycast(camera.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+			touchPost = camera.ScreenToWorldPoint(Input.mousePosition);
+		}
+
+		if(hit!=null && hit.transform!=null && hit.transform.name=="box"){
+			if(!Input.GetMouseButton(0)){
+			original=hit.transform.position;
+			original.x=touchPost.x;
+			original.y=touchPost.y;
+			hit.transform.position=original;
+			}
+			}
+		#endif
 }
 
 }

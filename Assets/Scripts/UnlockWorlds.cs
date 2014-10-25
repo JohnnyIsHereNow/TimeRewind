@@ -10,14 +10,14 @@ public class UnlockWorlds : MonoBehaviour {
 						PlayerPrefs.SetInt ("worldUnlocked"+i, 0);
 		}
 		//PlayerPrefs.SetInt ("worldUnlocked2", 0);
-		PlayerPrefs.SetInt ("dust", 5600);
+		//PlayerPrefs.SetInt ("dust", 5600);
 		PlayerPrefs.SetInt ("worldUnlocked1", 1);
 
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		Debug.Log (PlayerPrefs.GetInt ("dust"));
+		//Debug.Log (PlayerPrefs.GetInt ("dust"));
 		for(int i=1;i<=6;i++){
 			if(PlayerPrefs.GetInt("worldUnlocked"+i)==1)
 			GameObject.Find("Child For Pictures").gameObject.transform.FindChild("World"+i).FindChild("Locked").gameObject.SetActive(false);

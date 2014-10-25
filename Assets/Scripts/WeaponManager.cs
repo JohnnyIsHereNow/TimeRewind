@@ -17,7 +17,7 @@ public class WeaponManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-		PlayerPrefs.SetInt ("unlockGun0", 1);
+		PlayerPrefs.SetInt ("unlockGun1", 1);
 		//PlayerPrefs.DeleteAll ();
 				//save weapons
 		for (int i=0; i<=numberOfWeapons-1; i++) {

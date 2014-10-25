@@ -6,9 +6,9 @@ public class PlayerController : MonoBehaviour {
 	private Animator playerAnim;
 	private Animator OpenDoor;
 	private float speed=0;
-	private float maxspeed=24;
+	public static float maxspeed=24;
 	private int direction=0;
-	private int velocityy=27, velocityx=16;
+	public static int velocityy=27, velocityx=16;
 	private Vector3 scale;
 	public static bool IsDead=false;
 	private bool HasTheKey=false;
@@ -23,47 +23,20 @@ public class PlayerController : MonoBehaviour {
 	private MoveRight moverightbutton;
 	private SpriteRenderer spL,spR,c,ms,md,par1,par2;
 	public Material blueGlow,defaultMaterial;
-	public GameObject boom;
+	public GameObject boom;	
+	private float secondsToWait=0.5f;
+	private float time;
+	public static bool attackWithKnife=false;
 	//public Texture buttonA,buttonD,buttonW,buttonQ;
 	// Use this for initialization
-	void changeSpeed(){
-		StartCoroutine (FiveSecondsTime());
-	}
-	void displayShield(){
-		StartCoroutine (FiveSecondsForShield ());
-	}
-	void displayShield2(){
-		StartCoroutine (FiveSecondsForShield2 ());
-	}
 
-	IEnumerator FiveSecondsTime(){
-		maxspeed = 50;
-		velocityy = 40;
-		velocityx = 25;
-		yield return new WaitForSeconds(3);		
-		maxspeed = 24;
-		velocityy = 27;
-		velocityx = 16;
-	}
 
-	IEnumerator FiveSecondsForShield(){	
-		PlayerPrefs.SetInt("Shield",1);
-		transform.FindChild ("protectiveShield").GetComponent<SpriteRenderer> ().enabled = true;
-		yield return new WaitForSeconds (5);
-		transform.FindChild ("protectiveShield").GetComponent<SpriteRenderer> ().enabled = false;
-		PlayerPrefs.SetInt("Shield",0);
-	}
-	IEnumerator FiveSecondsForShield2(){
-		PlayerPrefs.SetInt("Shield2",1);
-		transform.FindChild ("killEnemiesShield").GetComponent<SpriteRenderer> ().enabled = true;
-		yield return new WaitForSeconds (5);
-		transform.FindChild ("killEnemiesShield").GetComponent<SpriteRenderer> ().enabled = false;
-		PlayerPrefs.SetInt("Shield2",0);
-	}
+
 
 
 
 	void Start () {
+		//PlayerPrefs.DeleteAll();
 		PlayerPrefs.SetInt("Shield",0);
 		PlayerPrefs.SetInt("Shield2",0);
 
@@ -89,18 +62,25 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D col){
+		//==========================Verifica coliziunea cu dust================
+
+		if(col.gameObject.tag=="Dust" && (!Input.GetKey("q") || !TimeScale.RewindTime) && !IsDead) {                             
+		                                  DustScript.goup=true;
+		                                  PlayerPrefs.SetInt ("dust", PlayerPrefs.GetInt ("dust") + 10);
+		                                  }
+
 		//==========================Verifica coliziunea cu lada================	
 		if (col.gameObject.tag == "Chest" && (!Input.GetKey ("q") || !TimeScale.RewindTime) && !IsDead) {
 			col.GetComponent<Animator>().SetBool("Open",true);
 				}
 		//==========================Verifica coliziunea cu shield=============
 		if (col.gameObject.tag == "shield" && (!Input.GetKey ("q")  || !TimeScale.RewindTime) && !IsDead) {
-			PlayerPrefs.SetInt("Shield",1);
+			PlayerPrefs.SetInt("NumberOfShields1",PlayerPrefs.GetInt("NumberOfShields1")+1);
 			Destroy(col.gameObject);
 		}
 		//==========================Verifica coliziunea cu shield2=============
 		if (col.gameObject.tag == "shield2" && (!Input.GetKey ("q") || !TimeScale.RewindTime) && !IsDead) {
-			PlayerPrefs.SetInt("Shield2",1);
+			PlayerPrefs.SetInt("NumberOfShields2",PlayerPrefs.GetInt("NumberOfShields2")+1);
 			Destroy(col.gameObject);
 		}
 
@@ -108,7 +88,7 @@ public class PlayerController : MonoBehaviour {
 		//==========================Verifica coliziunea cu speedShoe=============
 		if (col.gameObject.tag == "Shoe" && (!Input.GetKey ("q") || !TimeScale.RewindTime) && !IsDead) {
 					Destroy(col.gameObject);
-					changeSpeed();
+					PlayerPrefs.SetInt("NumberOfShoes",PlayerPrefs.GetInt("NumberOfShoes")+1);
 				}
 
 		//==========================Verifica coliziunea cu usa===================
@@ -135,19 +115,20 @@ public class PlayerController : MonoBehaviour {
 			col.gameObject.transform.parent=transform.FindChild("manaj");
 			else
 			   col.gameObject.transform.parent=transform.FindChild("caracter").FindChild("manaj");	
-			   
+
 			OpenDoor.SetBool("HasKey",true);
 		}
 
 
 //==========================Verifica pamantul si etc================
-				if (col.gameObject.tag == "Ground" && col.gameObject.transform.position.y<transform.position.y) {
+		if ((col.gameObject.tag == "Ground" || col.gameObject.tag == "Obstacles" || col.gameObject.tag == "Enemy" || col.gameObject.tag == "Untagged")&& col.gameObject.transform.position.y<transform.position.y) {
 						playerAnim.SetBool ("Jump", false);
 						playerAnim.SetBool("Grounded",true);
 						moving=false;
 				}
 		if ((col.gameObject.tag == "Obstacles" || col.gameObject.tag=="Enemy") && PlayerPrefs.GetInt("Shield")!=1 && PlayerPrefs.GetInt("Shield2")!=1) {
-			playerAnim.SetBool ("IsDead", true);			
+			playerAnim.SetBool ("IsDead", true);	
+			HasTheKey=false;
 			OpenDoor.SetBool("HasKey",false);
 		}
 		if(col.gameObject.tag=="Enemy" && PlayerPrefs.GetInt("Shield2")==1){
@@ -160,20 +141,27 @@ public class PlayerController : MonoBehaviour {
 	}
 	void OnCollisionExit2D(Collision2D col)
 	{
-		if (col.gameObject.tag == "Ground")
+		if (col.gameObject.tag == "Ground" || col.gameObject.tag == "Obstacles" || col.gameObject.tag == "Enemy" || col.gameObject.tag == "Untagged")
 		playerAnim.SetBool("Grounded",false);
 	}
-	
+
+
+
+	//
+	void makeAttackWithKnifeFalse(){
+		attackWithKnife=false;
+	}
+
 	// Update is called once per frame
 	void Update () {
-				//====================================Activate Shield ===================================
-				if (PlayerPrefs.HasKey ("Shield"))
-				if (PlayerPrefs.GetInt ("Shield") == 1)
-					displayShield();
-				//====================================Activate Shield2 ===================================
-				if (PlayerPrefs.HasKey ("Shield2"))
-					if (PlayerPrefs.GetInt ("Shield2") == 1)
-						displayShield2();
+
+		if ((Input.GetKeyDown ("e") || attackbutton.getAtaca()) && !playerAnim.GetBool ("IsDead") && PlayerPrefs.GetInt("weaponInUse")==0 && Time.time-time>secondsToWait) {
+			playerAnim.SetTrigger("AttackWithKnife");
+			time=Time.time;
+			attackWithKnife=true;
+			//Debug.Log ("Knife");
+		}
+
 								
 
 		//====================================Change Color of the feets===========================
@@ -257,14 +245,7 @@ public class PlayerController : MonoBehaviour {
 		
 //set the speed to 0 while is not walking
 
-		if ((Input.GetKeyDown ("e") || attackbutton.getAtaca()) && !playerAnim.GetBool ("IsDead") && PlayerPrefs.GetInt("weaponInUse")==0) {
-			playerAnim.SetTrigger("AttackWithKnife");
-			Debug.Log ("Knife");
-		}
-		if ((Input.GetKeyDown ("e") || attackbutton.getAtaca()) && !playerAnim.GetBool ("IsDead") && PlayerPrefs.GetInt("weaponInUse")==1) {
-			playerAnim.SetTrigger("AttackWithGun");
-			Debug.Log ("Gun");
-		}
+
 		//jumps sideways
 		if ((Input.GetKey ("d") || moverightbutton.getMoveRight()) && !playerAnim.GetBool ("Jump") && !playerAnim.GetBool ("IsDead")) {
 			speed=maxspeed;

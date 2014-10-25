@@ -13,7 +13,7 @@ public class KnifeDamage : MonoBehaviour {
 	void Update () {
 	}
 	void OnTriggerEnter2D(Collider2D col){
-		if (col.gameObject.tag == "Enemy") {
+		if (col.gameObject.tag == "Enemy" && PlayerController.attackWithKnife) {
 			enemy=col.gameObject;
 			eo=enemy.gameObject.GetComponent<EnemyOne>();
 			eo.setLife(damage);
