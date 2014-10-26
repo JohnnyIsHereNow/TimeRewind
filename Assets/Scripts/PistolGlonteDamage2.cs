@@ -43,15 +43,19 @@ public class PistolGlonteDamage2 : MonoBehaviour {
 			Vector3 scale = new Vector2 (-1, 1);
 			transform.localScale = scale;
 		}
-		#if UNITY_IPHONE || UNITY_ANDROID || UNITY_WP8 || UNITY_PSM || UNITY_EDITOR
+#if UNITY_IPHONE || UNITY_ANDROID || UNITY_WP8 || UNITY_PSM || UNITY_EDITOR
 		float zeroZ=0.9623718f;
 		float zeroY=0.1754303f;
 		zeroZ=Input.acceleration.z+zeroZ;
 		zeroY+=Input.acceleration.y;
 		//Debug.Log (Input.acceleration.y);
 		//transform.Rotate(new Vector3(0,0, zeroZ));
-		#endif
 		transform.Translate(new Vector2(speed*direction,zeroY*10));
+
+#endif
+#if UNITY_STANDALONE
+		transform.Translate(new Vector2(speed*direction,0));
+#endif
 
 		
 	}
