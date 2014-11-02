@@ -12,6 +12,6 @@ public class DisplayDust : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		text.text=""+PlayerPrefs.GetInt("dust");
-	//	Debug.Log (PlayerPrefs.GetInt ("dust"));
+		Debug.Log (PlayerPrefs.GetInt ("dust"));
 	}
 }

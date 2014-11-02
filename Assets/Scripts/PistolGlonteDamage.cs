@@ -9,6 +9,7 @@ public class PistolGlonteDamage : MonoBehaviour {
 	private GameObject player;
 	private GameObject enemy;
 	private EnemyOne eo;
+	private Enemy2Script e2s;
 	public GameObject boom;
 	private int damage= 20;
 	private GameObject moveleft;
@@ -27,6 +28,13 @@ public class PistolGlonteDamage : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		//Debug.Log ("Damage: "+damage);
+		if(PlayerPrefs.GetInt("weaponInUse")==1) damage=30;
+		if(PlayerPrefs.GetInt("weaponInUse")==2) damage=50;
+		if(PlayerPrefs.GetInt("weaponInUse")==3) damage=80;
+		if(PlayerPrefs.GetInt("weaponInUse")==4) damage=100;
+
+
 		if (player.transform.localScale.x == -1)
 						direction = -1;
 		if (Input.GetKey ("d") || moverightbutton.getMoveRight())
@@ -51,13 +59,20 @@ public class PistolGlonteDamage : MonoBehaviour {
 		if (col.gameObject.tag != "Player")				
 			Instantiate (boom, gameObject.transform.position, Quaternion.identity);
 		Destroy(gameObject);
-		if (col.gameObject.tag == "Enemy") {
+		if (col.gameObject.tag == "Enemy" && col.gameObject.name=="Enemy1") {
 			enemy=col.gameObject;
 			eo=enemy.gameObject.GetComponent<EnemyOne>();
 			eo.setLife(damage);
 			Destroy(gameObject);			
 			Instantiate (boom, gameObject.transform.position, Quaternion.identity);
-				}
+		}
+		if (col.gameObject.tag == "Enemy" && col.gameObject.name=="Enemy2") {
+			enemy=col.gameObject;
+			e2s=enemy.gameObject.GetComponent<Enemy2Script>();
+			e2s.setLife(damage);
+			Destroy(gameObject);			
+			Instantiate (boom, gameObject.transform.position, Quaternion.identity);
+		}
 	}
 
 }

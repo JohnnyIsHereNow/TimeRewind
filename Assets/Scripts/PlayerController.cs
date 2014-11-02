@@ -65,7 +65,7 @@ public class PlayerController : MonoBehaviour {
 		//==========================Verifica coliziunea cu dust================
 
 		if(col.gameObject.tag=="Dust" && (!Input.GetKey("q") || !TimeScale.RewindTime) && !IsDead) {                             
-		                                  DustScript.goup=true;
+											col.gameObject.GetComponent<DustScript>().goup=true;
 		                                  PlayerPrefs.SetInt ("dust", PlayerPrefs.GetInt ("dust") + 10);
 		                                  }
 
@@ -154,8 +154,7 @@ public class PlayerController : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-
-		if ((Input.GetKeyDown ("e") || attackbutton.getAtaca()) && !playerAnim.GetBool ("IsDead") && PlayerPrefs.GetInt("weaponInUse")==0 && Time.time-time>secondsToWait) {
+		if ((Input.GetKeyDown ("e") || attackbutton.getAtaca()) && !playerAnim.GetBool ("IsDead") && PlayerPrefs.GetInt("weaponInUse")==1 && Time.time-time>secondsToWait) {
 			playerAnim.SetTrigger("AttackWithKnife");
 			time=Time.time;
 			attackWithKnife=true;

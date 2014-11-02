@@ -1,0 +1,102 @@
+fileFormatVersion: 2
+guid: 2dd3a597115dc6a4c9b6ba1634590758
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: enemy2_head
+    21300002: enemy2_manaR
+    21300004: enemy2_body
+    21300006: enemy2_sword
+    21300008: enemy2_manaL
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: enemy2_head
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 1408
+        width: 392
+        height: 539
+      alignment: 9
+      pivot: {x: .55714649, y: .131888255}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: enemy2_manaR
+      rect:
+        serializedVersion: 2
+        x: 776
+        y: 1613
+        width: 156
+        height: 163
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: enemy2_body
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 0
+        width: 828
+        height: 1017
+      alignment: 9
+      pivot: {x: .523189902, y: .13812907}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: enemy2_sword
+      rect:
+        serializedVersion: 2
+        x: 1205
+        y: 158
+        width: 1148
+        height: 903
+      alignment: 9
+      pivot: {x: .232387528, y: .234202817}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: enemy2_manaL
+      rect:
+        serializedVersion: 2
+        x: 606
+        y: 1488
+        width: 174
+        height: 154
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 

@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class DustScript : MonoBehaviour {
-	public static bool goup=false;
+	public bool goup=false;
 	private Animator anim;
 	private SpriteRenderer tenText;
 	// Use this for initialization

@@ -1,7 +1,19 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using UnityEngine.UI;
 public class FunctionsToBeCalled : MonoBehaviour {
+	private GameObject aus;
+	private int worldToUnlock=0;
+	void Start(){
+		aus= GameObject.Find("Panel");
+			if(aus!=null)
+		aus.SetActive(false);
+	}
+	void Update(){
+		//Debug.Log (worldToUnlock);
+	}
+
+
 
 	public void PlayButton(){
 		if(!PlayerPrefs.HasKey("dust")) PlayerPrefs.SetInt("dust",0);
@@ -56,47 +68,38 @@ public class FunctionsToBeCalled : MonoBehaviour {
 			if(PlayerPrefs.GetInt("worldUnlocked6")==1)
 				Application.LoadLevel ("world6Levels");
 	}
-	public void UnlockWorld1(){
-		if(PlayerPrefs.HasKey("dust") && PlayerPrefs.GetInt("worldUnlocked1")==0){
-			if(PlayerPrefs.GetInt("dust")>=2500){
-				PlayerPrefs.SetInt ("worldUnlocked1", 1);
-				PlayerPrefs.SetInt("dust",PlayerPrefs.GetInt("dust")-2500);}
-			}
+	public void showPromt2(){
+		if(aus.activeInHierarchy == false){
+		worldToUnlock=2;
 		}
-	public void UnlockWorld2(){
-		if(PlayerPrefs.HasKey("dust") && PlayerPrefs.GetInt("worldUnlocked2")==0){
-			if(PlayerPrefs.GetInt("dust")>=2500){
-				PlayerPrefs.SetInt ("worldUnlocked2", 1);
-				PlayerPrefs.SetInt("dust",PlayerPrefs.GetInt("dust")-2500);}
-		}
+		if(PlayerPrefs.GetInt("worldUnlocked2")==0)
+		aus.SetActive(true);
 	}
-	public void UnlockWorld3(){
-		if(PlayerPrefs.HasKey("dust")  && PlayerPrefs.GetInt("worldUnlocked3")==0){
-			if(PlayerPrefs.GetInt("dust")>=2500){
-				PlayerPrefs.SetInt ("worldUnlocked3", 1);
-				PlayerPrefs.SetInt("dust",PlayerPrefs.GetInt("dust")-2500);}
+	public void showPromt3(){
+		if(aus.activeInHierarchy == false){
+		worldToUnlock=3;
 		}
+		if(PlayerPrefs.GetInt("worldUnlocked3")==0)
+		aus.SetActive(true);
 	}
-	public void UnlockWorld4(){
-		if(PlayerPrefs.HasKey("dust")  && PlayerPrefs.GetInt("worldUnlocked4")==0){
-			if(PlayerPrefs.GetInt("dust")>=2500){
-				PlayerPrefs.SetInt ("worldUnlocked4", 1);
-				PlayerPrefs.SetInt("dust",PlayerPrefs.GetInt("dust")-2500);}
+		public void showPromt4(){
+			if(aus.activeInHierarchy == false){
+		worldToUnlock=4;
 		}
+		if(PlayerPrefs.GetInt("worldUnlocked4")==0)
+			aus.SetActive(true);
 	}
-	public void UnlockWorld5(){
-		if(PlayerPrefs.HasKey("dust")  && PlayerPrefs.GetInt("worldUnlocked5")==0){
-			if(PlayerPrefs.GetInt("dust")>=2500){
-				PlayerPrefs.SetInt ("worldUnlocked5", 1);
-				PlayerPrefs.SetInt("dust",PlayerPrefs.GetInt("dust")-2500);}
-		}
+
+
+	public void cancelTransaction(){
+		aus.SetActive(false);
+
 	}
-	public void UnlockWorld6(){
-		if(PlayerPrefs.HasKey("dust")  && PlayerPrefs.GetInt("worldUnlocked6")==0){
-			if(PlayerPrefs.GetInt("dust")>=2500){
-				PlayerPrefs.SetInt ("worldUnlocked6", 1);
-				PlayerPrefs.SetInt("dust",PlayerPrefs.GetInt("dust")-2500);}
-		}
+	public void operateTransaction(){
+		aus.SetActive(false);
+		PlayerPrefs.SetInt("dust", PlayerPrefs.GetInt("dust")-2500);
+		PlayerPrefs.SetInt("worldUnlocked"+worldToUnlock,1);
+
 	}
 	public void EnterCharacterSelect(){
 		Application.LoadLevel ("characterSelect");

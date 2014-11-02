@@ -31,6 +31,11 @@ public class GunOneScript : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+
+
+
+
+
 		if ((Input.GetKeyDown ("e") || attackbutton.getAtaca()) && !playerAnim.GetBool ("IsDead") && PlayerPrefs.GetInt("weaponInUse")!=0 && Time.time-time>secondsToWait) {
 			playerAnim.SetTrigger("AttackWithGun");
 			//Debug.Log ("Gun");

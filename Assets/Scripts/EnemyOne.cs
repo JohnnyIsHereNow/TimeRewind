@@ -6,7 +6,7 @@ public class EnemyOne : MonoBehaviour {
 	private float speed;
 	private bool moveEnemy;
 	public GameObject boom;
-	public Camera myCamera;
+	private Camera myCamera;
 	private Vector2 vec;
 	private GUIStyle currentStyle=null;
 		// Use this for initialization
@@ -19,7 +19,7 @@ public class EnemyOne : MonoBehaviour {
 
 	void OnGUI(){
 		InitStyles();
-		if(life>0){
+		if(life>0 && Time.timeScale!=0){
 			vec=myCamera.WorldToScreenPoint(transform.position);
 			GUI.backgroundColor = Color.red;
 			GUI.Box(new Rect(vec.x-life*10/2,Screen.height-(vec.y+45),life*10,10),"a",currentStyle);

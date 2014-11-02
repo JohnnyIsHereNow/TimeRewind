@@ -5,16 +5,18 @@ public class PistolGlonteDamage2 : MonoBehaviour {
 	private float speed=0.3f;	
 	private int direction =1;	
 	private float time=0.0f;
-	private float maxTime = 3.0f;
+	private float maxTime = 6.0f;
 	private GameObject player;
 	private GameObject enemy;
 	private EnemyOne eo;
+	private Enemy2Script e2s;
 	public GameObject boom;
-	private int damage= 20;
+	private int damage= 50;
 	private GameObject moveleft;
 	private MoveLeft moveleftbutton;
 	private GameObject moveright;
 	private MoveRight moverightbutton;
+	private Vector3 defaultAcceleration;
 	// Use this for initialization
 	void Start () {
 		player = GameObject.Find ("Player");
@@ -22,7 +24,7 @@ public class PistolGlonteDamage2 : MonoBehaviour {
 		moveleftbutton = moveleft.GetComponent<MoveLeft> ();
 		moveright = GameObject.Find ("right");
 		moverightbutton = moveright.GetComponent<MoveRight> ();
-		
+		defaultAcceleration=Input.acceleration;
 	}
 	
 	// Update is called once per frame
@@ -44,13 +46,11 @@ public class PistolGlonteDamage2 : MonoBehaviour {
 			transform.localScale = scale;
 		}
 #if UNITY_IPHONE || UNITY_ANDROID || UNITY_WP8 || UNITY_PSM || UNITY_EDITOR
-		float zeroZ=0.9623718f;
-		float zeroY=0.1754303f;
-		zeroZ=Input.acceleration.z+zeroZ;
-		zeroY+=Input.acceleration.y;
-		//Debug.Log (Input.acceleration.y);
+
+		Vector3 changedAcceleration = Input.acceleration-defaultAcceleration;
+		//Debug.Log (changedAcceleration);
 		//transform.Rotate(new Vector3(0,0, zeroZ));
-		transform.Translate(new Vector2(speed*direction,zeroY*10));
+		transform.Translate(new Vector2(speed*direction,changedAcceleration.y*5));
 
 #endif
 #if UNITY_STANDALONE
@@ -63,10 +63,17 @@ public class PistolGlonteDamage2 : MonoBehaviour {
 		if (col.gameObject.tag != "Player")				
 			Instantiate (boom, gameObject.transform.position, Quaternion.identity);
 		Destroy(gameObject);
-		if (col.gameObject.tag == "Enemy") {
+		if (col.gameObject.tag == "Enemy" && col.gameObject.name=="Enemy1") {
 			enemy=col.gameObject;
 			eo=enemy.gameObject.GetComponent<EnemyOne>();
 			eo.setLife(damage);
+			Destroy(gameObject);			
+			Instantiate (boom, gameObject.transform.position, Quaternion.identity);
+		}
+		if (col.gameObject.tag == "Enemy" && col.gameObject.name=="Enemy2") {
+			enemy=col.gameObject;
+			e2s=enemy.gameObject.GetComponent<Enemy2Script>();
+			e2s.setLife(damage);
 			Destroy(gameObject);			
 			Instantiate (boom, gameObject.transform.position, Quaternion.identity);
 		}

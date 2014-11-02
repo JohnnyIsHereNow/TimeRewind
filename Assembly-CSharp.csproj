@@ -39,10 +39,10 @@
 	<Reference Include="System.Core" />
 	<Reference Include="System.Xml.Linq" />
 	<Reference Include="UnityEngine">
-	  <HintPath>D:/Programe Instalate/Unity/Data/Managed/UnityEngine.dll</HintPath>
+	  <HintPath>D:/Programe Instalate/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
 	</Reference>
 	<Reference Include="UnityEditor">
-	  <HintPath>D:/Programe Instalate/Unity/Data/Managed/UnityEditor.dll</HintPath>
+	  <HintPath>D:/Programe Instalate/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
 	</Reference>
   </ItemGroup>
   <ItemGroup>
@@ -51,6 +51,7 @@
      <Compile Include="Assets\Scripts\Enemies\ArrowGoRight.cs" />
      <Compile Include="Assets\Scripts\Enemies\BowShootLeft.cs" />
      <Compile Include="Assets\Scripts\Enemies\BowShootRight.cs" />
+     <Compile Include="Assets\Scripts\Enemies\Enemy2Script.cs" />
      <Compile Include="Assets\Scripts\Enemies\NinjaStarMovement.cs" />
      <Compile Include="Assets\Scripts\EnemyOne.cs" />
      <Compile Include="Assets\Scripts\EnterLevel1.cs" />
@@ -61,7 +62,9 @@
      <Compile Include="Assets\Scripts\MovePlatform.cs" />
      <Compile Include="Assets\Scripts\Other\AfterChestOpens.cs" />
      <Compile Include="Assets\Scripts\Other\AttackButton.cs" />
+     <Compile Include="Assets\Scripts\Other\BackToMenuMouseUp.cs" />
      <Compile Include="Assets\Scripts\Other\ButtonActions.cs" />
+     <Compile Include="Assets\Scripts\Other\Buttons\DisplayTextForUnlockingWorlds.cs" />
      <Compile Include="Assets\Scripts\Other\Buttons\IfPlayerDead.cs" />
      <Compile Include="Assets\Scripts\Other\Buttons\ShowShield1.cs" />
      <Compile Include="Assets\Scripts\Other\Buttons\ShowShield2.cs" />
@@ -98,7 +101,7 @@
      <Compile Include="Assets\Scripts\UnlockWorlds.cs" />
      <Compile Include="Assets\Scripts\WeaponManager.cs" />
  <Reference Include="UnityEngine.UI">
- <HintPath>D:/Programe Instalate/Unity/Data/UnityExtensions/Unity/GUISystem/4.6.0/UnityEngine.UI.dll</HintPath>
+ <HintPath>D:/Programe Instalate/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.0/UnityEngine.UI.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
