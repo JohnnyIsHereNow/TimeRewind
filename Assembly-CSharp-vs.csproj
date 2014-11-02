@@ -60,6 +60,7 @@
      <Compile Include="Assets\Scripts\GunOneScript.cs" />
      <Compile Include="Assets\Scripts\KnifeDamage.cs" />
      <Compile Include="Assets\Scripts\MovePlatform.cs" />
+     <Compile Include="Assets\Scripts\MovePlatformUpDown.cs" />
      <Compile Include="Assets\Scripts\Other\AfterChestOpens.cs" />
      <Compile Include="Assets\Scripts\Other\AttackButton.cs" />
      <Compile Include="Assets\Scripts\Other\BackToMenuMouseUp.cs" />
