@@ -10,6 +10,7 @@ public class PistolGlonteDamage : MonoBehaviour {
 	private GameObject enemy;
 	private EnemyOne eo;
 	private Enemy2Script e2s;
+	private Enemy3Script e3s;
 	public GameObject boom;
 	private int damage= 20;
 	private GameObject moveleft;
@@ -58,7 +59,7 @@ public class PistolGlonteDamage : MonoBehaviour {
 	void OnCollisionEnter2D(Collision2D col){
 		if (col.gameObject.tag != "Player")				
 			Instantiate (boom, gameObject.transform.position, Quaternion.identity);
-		Destroy(gameObject);
+			Destroy(gameObject);
 		if (col.gameObject.tag == "Enemy" && col.gameObject.name=="Enemy1") {
 			enemy=col.gameObject;
 			eo=enemy.gameObject.GetComponent<EnemyOne>();
@@ -73,6 +74,22 @@ public class PistolGlonteDamage : MonoBehaviour {
 			Destroy(gameObject);			
 			Instantiate (boom, gameObject.transform.position, Quaternion.identity);
 		}
+		if (col.gameObject.tag == "Enemy" && col.gameObject.name=="Enemy3") {
+			enemy=col.gameObject;
+			e3s=enemy.gameObject.GetComponent<Enemy3Script>();
+			e3s.setLife(damage);
+			Destroy(gameObject);			
+			Instantiate (boom, gameObject.transform.position, Quaternion.identity);
+		}
+		/*
+		if (col.gameObject.tag == "Enemy" && col.gameObject.name=="Enemy4") {
+			enemy=col.gameObject;
+			e4s=enemy.gameObject.GetComponent<Enemy4Script>();
+			e4s.setLife(damage);
+			Destroy(gameObject);			
+			Instantiate (boom, gameObject.transform.position, Quaternion.identity);
+		}
+		*/
 	}
 
 }

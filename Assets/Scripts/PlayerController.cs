@@ -3,6 +3,9 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour {
 	bool doubleJump=false;
+	public GameObject shieldForMagnet;
+	public GameObject star;
+	public GameObject levelCompleteInterface;
 	private Animator playerAnim;
 	private Animator OpenDoor;
 	private float speed=0;
@@ -36,6 +39,8 @@ public class PlayerController : MonoBehaviour {
 
 
 	void Start () {
+		levelCompleteInterface=GameObject.Find("LevelComplete");
+		if(!PlayerPrefs.HasKey("TIMEMission")) PlayerPrefs.SetString("TIMEMission","");
 		//PlayerPrefs.DeleteAll();
 		PlayerPrefs.SetInt("Shield",0);
 		PlayerPrefs.SetInt("Shield2",0);
@@ -62,6 +67,36 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D col){
+		//==========================Check collision with TIME=================
+
+		if(col.gameObject.tag=="Time" && (!Input.GetKey("q") || !TimeScale.RewindTime) && !IsDead) {
+			if(PlayerPrefs.GetString("TIMEMission")=="") PlayerPrefs.SetString("TIMEMission","T");
+			else
+				if(PlayerPrefs.GetString("TIMEMission")=="T") PlayerPrefs.SetString("TIMEMission","TI");
+			else
+				if(PlayerPrefs.GetString("TIMEMission")=="TI") PlayerPrefs.SetString("TIMEMission","TIM");
+			else
+				if(PlayerPrefs.GetString("TIMEMission")=="TIM") 
+
+			{
+				//give player a better reward for collecting all letters.
+				PlayerPrefs.SetInt("dust",PlayerPrefs.GetInt("dust")+100);
+					PlayerPrefs.SetString("TIMEMission","");
+			}
+			Instantiate(star,col.gameObject.transform.position,Quaternion.identity);
+			Destroy(col.gameObject);
+
+		}
+
+
+		//==========================Check collision with Magnet================
+		if(col.gameObject.tag=="Magnet" && (!Input.GetKey("q") || !TimeScale.RewindTime) && !IsDead) {    
+			Destroy(col.gameObject);
+			//make new Magnet Shield
+			Instantiate(shieldForMagnet,transform.position,Quaternion.identity);
+
+		}
+
 		//==========================Verifica coliziunea cu dust================
 
 		if(col.gameObject.tag=="Dust" && (!Input.GetKey("q") || !TimeScale.RewindTime) && !IsDead) {                             
@@ -99,7 +134,10 @@ public class PlayerController : MonoBehaviour {
 			{
 				PlayerPrefs.SetInt("levelsUnlocked1", PlayerPrefs.GetInt("levelsUnlocked1")+1);
 			}
-			Application.LoadLevel ("loadWorldScene");
+
+			//show LevelCompleteInterface
+			Time.timeScale=0.001f;
+			levelCompleteInterface.transform.FindChild("LevelCompleteInterface").gameObject.SetActive(true);
 			
 		}
 
@@ -133,6 +171,11 @@ public class PlayerController : MonoBehaviour {
 		}
 		if(col.gameObject.tag=="Enemy" && PlayerPrefs.GetInt("Shield2")==1){
 			Instantiate(boom, col.gameObject.transform.position,Quaternion.identity);
+			//increase number of enemies killed here
+			if(PlayerPrefs.HasKey("numberOfEnemiesKilled")) 
+				PlayerPrefs.SetInt("numberOfEnemiesKilled",PlayerPrefs.GetInt("numberOfEnemiesKilled")+1);
+			else PlayerPrefs.SetInt("numberOfEnemiesKilled",0);
+			//
 			Destroy (col.gameObject);
 		}
 

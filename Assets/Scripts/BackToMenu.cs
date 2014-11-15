@@ -6,5 +6,6 @@ public class BackToMenu : MonoBehaviour {
 	// Use this for initialization
 	void OnClick(){
 		Application.LoadLevel ("startScene");
+        
 	}
 }

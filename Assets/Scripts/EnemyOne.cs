@@ -59,6 +59,11 @@ public class EnemyOne : MonoBehaviour {
 	}
 	public void destroyMe(){
 		Instantiate(boom, transform.position,Quaternion.identity);
+		//increase number of enemies killed here
+		if(PlayerPrefs.HasKey("numberOfEnemiesKilled")) 
+			PlayerPrefs.SetInt("numberOfEnemiesKilled",PlayerPrefs.GetInt("numberOfEnemiesKilled")+1);
+		else PlayerPrefs.SetInt("numberOfEnemiesKilled",0);
+		//
 		Destroy (gameObject);
 	}private void InitStyles()
 	{

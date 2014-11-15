@@ -9,8 +9,7 @@ public class DustScript : MonoBehaviour {
 	void Start () {
 		anim = GetComponent<Animator> ();
 		tenText = transform.FindChild ("tenText").GetComponent<SpriteRenderer>();
-
-
+        
 	}
 	
 	// Update is called once per frame
@@ -23,6 +22,6 @@ public class DustScript : MonoBehaviour {
 			transform.position=transform.position+new Vector3(0,0.1f,0);
 			tenText.enabled=true;
 			Destroy (gameObject, 2);
-				}
+		}
 	}
 }

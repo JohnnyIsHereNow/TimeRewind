@@ -106,7 +106,7 @@ public class FunctionsToBeCalled : MonoBehaviour {
 		}
 	public void EnterWorld1Level1(){
 		PlayerPrefs.SetInt ("levelInPlay", 1);
-		Application.LoadLevel ("scene");
+		Application.LoadLevel ("level01-01");
 	}
 	public void EnterWorld1Level2(){
 		PlayerPrefs.SetInt ("levelInPlay", 2);

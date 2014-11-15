@@ -30,9 +30,26 @@ public class Enemy2Script : MonoBehaviour {
 	public void setLife(int minusLife){
 		life-=minusLife;
 	}
-	
 	void OnCollisionStay2D(Collision2D col){
 		moveEnemy=true;
+	}
+	void OnCollisionEnter2D(Collision2D col){
+		
+		if(col.gameObject.tag=="Ground"){
+			//change speed if a wall he hits a wall in left or right
+			if(col.gameObject.transform.position.y>transform.position.y){
+				if(col.gameObject.transform.position.x < transform.position.x)
+				{
+					transform.localScale=new Vector2(-1,1);
+					speed=-speed;
+				}else 
+				{	
+					transform.localScale=new Vector2(1,1);
+					speed=-speed;
+				}
+			}
+			
+		}
 	}
 	
 	void OnTriggerEnter2D(Collider2D col){
@@ -63,6 +80,11 @@ public class Enemy2Script : MonoBehaviour {
 	}
 	public void destroyMe(){
 		Instantiate(boom, transform.position,Quaternion.identity);
+		//increase number of enemies killed here
+		if(PlayerPrefs.HasKey("numberOfEnemiesKilled")) 
+			PlayerPrefs.SetInt("numberOfEnemiesKilled",PlayerPrefs.GetInt("numberOfEnemiesKilled")+1);
+		else PlayerPrefs.SetInt("numberOfEnemiesKilled",0);
+		//
 		Destroy (gameObject);
 	}private void InitStyles()
 	{

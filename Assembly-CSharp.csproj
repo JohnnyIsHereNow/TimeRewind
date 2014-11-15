@@ -52,6 +52,7 @@
      <Compile Include="Assets\Scripts\Enemies\BowShootLeft.cs" />
      <Compile Include="Assets\Scripts\Enemies\BowShootRight.cs" />
      <Compile Include="Assets\Scripts\Enemies\Enemy2Script.cs" />
+     <Compile Include="Assets\Scripts\Enemies\Enemy3Script.cs" />
      <Compile Include="Assets\Scripts\Enemies\NinjaStarMovement.cs" />
      <Compile Include="Assets\Scripts\EnemyOne.cs" />
      <Compile Include="Assets\Scripts\EnterLevel1.cs" />
@@ -61,6 +62,7 @@
      <Compile Include="Assets\Scripts\KnifeDamage.cs" />
      <Compile Include="Assets\Scripts\MovePlatform.cs" />
      <Compile Include="Assets\Scripts\MovePlatformUpDown.cs" />
+     <Compile Include="Assets\Scripts\NextLevelScree\NextLevelFunctions.cs" />
      <Compile Include="Assets\Scripts\Other\AfterChestOpens.cs" />
      <Compile Include="Assets\Scripts\Other\AttackButton.cs" />
      <Compile Include="Assets\Scripts\Other\BackToMenuMouseUp.cs" />
@@ -80,6 +82,13 @@
      <Compile Include="Assets\Scripts\Other\MoveObjectByDrag.cs" />
      <Compile Include="Assets\Scripts\Other\MoveRight.cs" />
      <Compile Include="Assets\Scripts\Other\NextWeapon.cs" />
+     <Compile Include="Assets\Scripts\Other\NotImportant\AddVelocityToPlatform.cs" />
+     <Compile Include="Assets\Scripts\Other\NotImportant\MagnetScript.cs" />
+     <Compile Include="Assets\Scripts\Other\NotImportant\MakeTIME.cs" />
+     <Compile Include="Assets\Scripts\Other\NotImportant\MoveOnlyIfYouHaveTheKey.cs" />
+     <Compile Include="Assets\Scripts\Other\NotImportant\MoveWallUpDown.cs" />
+     <Compile Include="Assets\Scripts\Other\NotImportant\ShowNumberOfEnemiesKilled.cs" />
+     <Compile Include="Assets\Scripts\Other\NotImportant\StarForTIME.cs" />
      <Compile Include="Assets\Scripts\Other\PauseButtonScript.cs" />
      <Compile Include="Assets\Scripts\Other\ReplayLevel.cs" />
      <Compile Include="Assets\Scripts\Other\RewindButton.cs" />
