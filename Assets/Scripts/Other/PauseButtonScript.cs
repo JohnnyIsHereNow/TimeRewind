@@ -155,9 +155,21 @@ public class PauseButtonScript : MonoBehaviour {
 			text.GetComponent<Text>().text="You don't have enough dust.";
 	}
 
+	public void unlockOneMoreLevel(){
+				if (PlayerPrefs.GetInt ("dust") >= 500) {
+						if (PlayerPrefs.GetInt ("levelsUnlocked1") < 30) {
+								PlayerPrefs.SetInt ("dust", PlayerPrefs.GetInt ("dust") - 500);
+								PlayerPrefs.SetInt ("levelsUnlocked1", PlayerPrefs.GetInt ("levelsUnlocked1") + 1);
+							}else 
+							{
+								text.GetComponent<Text> ().text = "No more levels to be unlocked";
+							}
+				}
+				else
+				{
+				text.GetComponent<Text>().text="You don't have enough dust.";
+				}
 
-
-
-
+}
 }
 	

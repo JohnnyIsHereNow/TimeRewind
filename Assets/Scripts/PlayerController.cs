@@ -39,6 +39,7 @@ public class PlayerController : MonoBehaviour {
 
 
 	void Start () {
+		PlayerPrefs.SetInt ("dust", 10000);
 		levelCompleteInterface=GameObject.Find("LevelComplete");
 		if(!PlayerPrefs.HasKey("TIMEMission")) PlayerPrefs.SetString("TIMEMission","");
 		//PlayerPrefs.DeleteAll();
@@ -145,6 +146,9 @@ public class PlayerController : MonoBehaviour {
 	
 	void OnCollisionEnter2D(Collision2D col)
 	{	
+		if (col.gameObject.tag == "Ground" && !Input.GetKey("a") && !Input.GetKey("d")) {
+			transform.rigidbody2D.velocity=new Vector2(0,transform.rigidbody2D.velocity.y);
+				}
 		//==========================Verifica coliziunea cu cheita================	
 		
 		if (col.gameObject.tag == "Key" && (!Input.GetKey("q") || !TimeScale.RewindTime) && !IsDead) {
@@ -164,6 +168,8 @@ public class PlayerController : MonoBehaviour {
 						playerAnim.SetBool("Grounded",true);
 						moving=false;
 				}
+
+
 		if ((col.gameObject.tag == "Obstacles" || col.gameObject.tag=="Enemy") && PlayerPrefs.GetInt("Shield")!=1 && PlayerPrefs.GetInt("Shield2")!=1) {
 			playerAnim.SetBool ("IsDead", true);	
 			HasTheKey=false;
@@ -194,9 +200,10 @@ public class PlayerController : MonoBehaviour {
 	void makeAttackWithKnifeFalse(){
 		attackWithKnife=false;
 	}
-
 	// Update is called once per frame
 	void Update () {
+		Debug.Log ("VelocityX: " + transform.rigidbody2D.velocity.x);
+
 		if ((Input.GetKeyDown ("e") || attackbutton.getAtaca()) && !playerAnim.GetBool ("IsDead") && PlayerPrefs.GetInt("weaponInUse")==1 && Time.time-time>secondsToWait) {
 			playerAnim.SetTrigger("AttackWithKnife");
 			time=Time.time;

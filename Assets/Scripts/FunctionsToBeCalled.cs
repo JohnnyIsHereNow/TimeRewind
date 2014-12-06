@@ -110,7 +110,7 @@ public class FunctionsToBeCalled : MonoBehaviour {
 	}
 	public void EnterWorld1Level2(){
 		PlayerPrefs.SetInt ("levelInPlay", 2);
-		Application.LoadLevel ("scene2");
+		Application.LoadLevel ("level01-02");
 	}
 
 	public void UnlockCharacter2(){

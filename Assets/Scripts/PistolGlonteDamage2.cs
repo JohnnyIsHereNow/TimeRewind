@@ -92,6 +92,10 @@ public class PistolGlonteDamage2 : MonoBehaviour {
 			Destroy(gameObject);			
 			Instantiate (boom, gameObject.transform.position, Quaternion.identity);
 		}*/
+		if (col.gameObject.name == "box") {
+			Destroy(col.gameObject);			
+			Instantiate (boom, gameObject.transform.position, Quaternion.identity);
+		}
 	}
 	
 }

@@ -1,50 +1,38 @@
 Initialize engine version: 4.6.0b21 (bee422ec5c5c)
 GfxDevice: creating device client; threaded=1
 Direct3D:
-    Version:  Direct3D 11.0 [level 10.1]
-    Renderer: Intel(R) HD Graphics 3000 (ID=0x116)
-    Vendor:   Intel
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce GT 520MX   (ID=0x1051)
+    Vendor:   NVIDIA
     VRAM:     971 MB
 Begin MonoManager ReloadAssembly
-Platform assembly: D:\PROIECTE\UNITY\Unity Projects\Time Rewind\TimeRewind\WindowsVersion\version_Data\Managed\UnityEngine.dll (this message is harmless)
-Loading D:\PROIECTE\UNITY\Unity Projects\Time Rewind\TimeRewind\WindowsVersion\version_Data\Managed\UnityEngine.dll into Unity Child Domain
-Platform assembly: D:\PROIECTE\UNITY\Unity Projects\Time Rewind\TimeRewind\WindowsVersion\version_Data\Managed\Assembly-CSharp.dll (this message is harmless)
-Loading D:\PROIECTE\UNITY\Unity Projects\Time Rewind\TimeRewind\WindowsVersion\version_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-Platform assembly: D:\PROIECTE\UNITY\Unity Projects\Time Rewind\TimeRewind\WindowsVersion\version_Data\Managed\UnityEngine.UI.dll (this message is harmless)
-Loading D:\PROIECTE\UNITY\Unity Projects\Time Rewind\TimeRewind\WindowsVersion\version_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-- Completed reload, in  0.414 seconds
-desktop: 1366x768 60Hz; virtual: 2646x1024 at -1280,0
+Platform assembly: E:\PROIECTE\UNITY\Unity Projects\Time Rewind\TimeRewind\WindowsVersion\version_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading E:\PROIECTE\UNITY\Unity Projects\Time Rewind\TimeRewind\WindowsVersion\version_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: E:\PROIECTE\UNITY\Unity Projects\Time Rewind\TimeRewind\WindowsVersion\version_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading E:\PROIECTE\UNITY\Unity Projects\Time Rewind\TimeRewind\WindowsVersion\version_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: E:\PROIECTE\UNITY\Unity Projects\Time Rewind\TimeRewind\WindowsVersion\version_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading E:\PROIECTE\UNITY\Unity Projects\Time Rewind\TimeRewind\WindowsVersion\version_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+- Completed reload, in  0.166 seconds
+desktop: 1366x768 60Hz; virtual: 2646x1024 at -1280,-70
 <RI> Initializing input.
 <RI> Input initialized.
-Platform assembly: D:\PROIECTE\UNITY\Unity Projects\Time Rewind\TimeRewind\WindowsVersion\version_Data\Managed\System.Core.dll (this message is harmless)
-Platform assembly: D:\PROIECTE\UNITY\Unity Projects\Time Rewind\TimeRewind\WindowsVersion\version_Data\Managed\System.dll (this message is harmless)
-UnloadTime: 19.163366 ms
+Platform assembly: E:\PROIECTE\UNITY\Unity Projects\Time Rewind\TimeRewind\WindowsVersion\version_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: E:\PROIECTE\UNITY\Unity Projects\Time Rewind\TimeRewind\WindowsVersion\version_Data\Managed\System.dll (this message is harmless)
+UnloadTime: 5.679315 ms
 Unloading 4 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
 
 Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 365.
-Total: 1.765746 ms (FindLiveObjects: 0.047117 ms CreateObjectMapping: 0.017260 ms MarkObjects: 0.482839 ms  DeleteObjects: 0.025658 ms)
+Total: 0.965213 ms (FindLiveObjects: 0.020526 ms CreateObjectMapping: 0.013995 ms MarkObjects: 0.286904 ms  DeleteObjects: 0.012129 ms)
 
-UnloadTime: 3.326228 ms
+UnloadTime: 2.088573 ms
 Unloading 2 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
 
 Unloading 25 unused Assets to reduce memory usage. Loaded Objects now: 558.
-Total: 7.654523 ms (FindLiveObjects: 0.059713 ms CreateObjectMapping: 0.025658 ms MarkObjects: 1.514296 ms  DeleteObjects: 0.194068 ms)
+Total: 1.171877 ms (FindLiveObjects: 0.031256 ms CreateObjectMapping: 0.016327 ms MarkObjects: 0.394202 ms  DeleteObjects: 0.101699 ms)
 
-UnloadTime: 1.802134 ms
+UnloadTime: 1.232057 ms
 Unloading 3 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
 
-Unloading 38 unused Assets to reduce memory usage. Loaded Objects now: 4267.
-Total: 3.487641 ms (FindLiveObjects: 0.401666 ms CreateObjectMapping: 0.056447 ms MarkObjects: 1.716763 ms  DeleteObjects: 0.105431 ms)
-
-UnloadTime: 34.251289 ms
-Unloading 2 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
-
-Unloading 2 unused Assets to reduce memory usage. Loaded Objects now: 4273.
-Total: 4.106702 ms (FindLiveObjects: 0.383939 ms CreateObjectMapping: 0.065778 ms MarkObjects: 1.814263 ms  DeleteObjects: 0.339153 ms)
-
-UnloadTime: 60.484642 ms
-Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
-
-Unloading 296 unused Assets to reduce memory usage. Loaded Objects now: 186.
-Total: 3.449387 ms (FindLiveObjects: 0.026124 ms CreateObjectMapping: 0.048983 ms MarkObjects: 0.565412 ms  DeleteObjects: 1.566079 ms)
+Unloading 38 unused Assets to reduce memory usage. Loaded Objects now: 4291.
+Total: 1.734957 ms (FindLiveObjects: 0.209463 ms CreateObjectMapping: 0.033588 ms MarkObjects: 0.797735 ms  DeleteObjects: 0.056447 ms)
 

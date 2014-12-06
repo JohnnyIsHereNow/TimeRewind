@@ -2,34 +2,40 @@
 using System.Collections;
 
 public class MoveWallUpDown : MonoBehaviour {
-	public float movingSpeed;
-	public bool change=true;
-	// Use this for initialization
-	void Start () {
-		movingSpeed = -0.3f;
-	}
-	
-	private IEnumerator changeSpeed(){
-		yield return new WaitForSeconds(3);
-		movingSpeed=-movingSpeed;
-		change=true;
-	}
-	
-	// Update is called once per frame
-	
-	void OnCollisionEnter2D(Collision2D col){
-		if(col.gameObject.tag=="Enemy" || col.gameObject.tag=="Player" || col.gameObject.tag=="Ground")
-		if(col.gameObject.transform.position.y<transform.position.y){
-			movingSpeed=-movingSpeed;
-			change=true;
+	//testing stupid version for this code
+	private float time1=0.0f;
+	private float time2=0.0f;
+	private float numberOfSeconds=2.5f;
+	private bool goDown = true;
+
+	//methods
+	public void Start(){
+		}
+	public void FixedUpdate(){
+				time2 = Time.time;
+				//Debug.Log (numberOfSeconds);
+
+				if (time2 - time1 > numberOfSeconds) {
+					time1=Time.time;
+					if(goDown) goDown=false; else goDown=true;
+					numberOfSeconds = 2.5f;
+				}
+				if (goDown) {				
+					transform.Translate(new Vector3(0.0f,-0.1f,0.0f));
+				} else {
+					transform.Translate(new Vector3(0.0f,0.1f,0.0f));
+				}
+				
+		}
+
+
+
+    public void OnTriggerEnter2D(Collider2D col){
+		if (col.gameObject.tag == "Enemy") {
+			numberOfSeconds=time2-time1;
+			time1=Time.time;
+			if(goDown) goDown=false; else goDown=true;
 		}
 	}
-	
-	void Update () {
-		if(change)	{
-			change=false;
-			StartCoroutine(changeSpeed());
-		}
-		transform.Translate (new Vector2 (0,movingSpeed));
-	}
+
 }
