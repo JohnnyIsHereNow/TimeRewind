@@ -2,38 +2,38 @@
 using System.Collections;
 
 public class MovePlatformUpDown: MonoBehaviour {
-	private float movingSpeed;
-	private float maxGone;
-	private float gone;
+	private bool goDown = true;
+	private Vector3 pos,pos2;
 	private GameObject player;
-	private bool change=true;
+	private float movingSpeed;
 	// Use this for initialization
 	void Start () {
 		movingSpeed = -0.1f;
+		pos = transform.position;
+		pos2 = new Vector3 (transform.position.x,transform.position.y-6,transform.position.z);
 		player = GameObject.FindGameObjectWithTag ("Player");
-	}
-
-	private IEnumerator changeSpeed(){
-		yield return new WaitForSeconds(3);
-		movingSpeed=-movingSpeed;
-		change=true;
 	}
 	
 	// Update is called once per frame
 
-	void OnCollisionEnter2D(Collision2D col){
+	void OnTriggerEnter2D(Collider2D col){
 		if(col.gameObject.tag=="Enemy" || col.gameObject.tag=="Player" || col.gameObject.tag=="Ground")
 				if(col.gameObject.transform.position.y<transform.position.y){
 						movingSpeed=-movingSpeed;
-			change=true;
+						if(goDown) goDown=false; else goDown=true;
 				}
 		}
 
-	void Update () {
-		if(change)	{
-			change=false;
-			StartCoroutine(changeSpeed());
+	public void FixedUpdate(){
+		if (transform.position.y > pos.y) {
+			movingSpeed=-movingSpeed;
+			goDown=true;		
 		}
-				transform.Translate (new Vector2 (0,movingSpeed));
+		if (transform.position.y < pos2.y) {			
+			movingSpeed=-movingSpeed;
+			goDown=false;		
+		}
+			transform.Translate(0,movingSpeed,0);
+		
 	}
 }

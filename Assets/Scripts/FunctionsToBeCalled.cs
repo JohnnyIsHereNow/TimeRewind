@@ -127,6 +127,22 @@ public class FunctionsToBeCalled : MonoBehaviour {
 		PlayerPrefs.SetInt ("Player", 1);
 		
 	}
+	public void DisableVirtualStore(){
+		Transform g= GameObject.Find("__PauseButton").transform.FindChild("_UIElements").transform.FindChild("Canvas").transform.FindChild("ScrollRect");
+		if(g.localScale.x==1){
+			g.localScale=new Vector2(0,0);
+			GameObject.Find("__PauseButton").transform.FindChild("_UIElements").transform.FindChild("Canvas").transform.FindChild("SocialDustEarn").gameObject.SetActive(true);
+			GameObject.Find("__PauseButton").transform.FindChild("_UIElements").transform.FindChild("Canvas").transform.FindChild("FreeDust").FindChild("Text").GetComponent<Text>().text="Go back to the store";
+		}else{
+			g.localScale=new Vector2(1,1);
+			GameObject.Find("__PauseButton").transform.FindChild("_UIElements").transform.FindChild("Canvas").transform.FindChild("SocialDustEarn").gameObject.SetActive(false);
+			GameObject.Find("__PauseButton").transform.FindChild("_UIElements").transform.FindChild("Canvas").transform.FindChild("FreeDust").FindChild("Text").GetComponent<Text>().text="Do you want free dust ?";
+		}
+	}
+
+	public void goToTheStore(){
+		Application.OpenURL("http://iubisoft.com");
+	}
 
 
 }

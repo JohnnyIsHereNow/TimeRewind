@@ -14,7 +14,7 @@ public class KnifeDamage : MonoBehaviour {
 	void Update () {
 	}
 	void OnTriggerEnter2D(Collider2D col){
-		if (col.gameObject.tag == "Enemy" && col.gameObject.name=="Enemy1" && PlayerController.attackWithKnife) {
+		if (col.gameObject.tag == "Enemy" && (col.gameObject.name=="Enemy1" || col.gameObject.name=="Enemy1ToCreate(Clone)") && PlayerController.attackWithKnife) {
 			enemy=col.gameObject;
 			eo=enemy.gameObject.GetComponent<EnemyOne>();
 			eo.setLife(damage);

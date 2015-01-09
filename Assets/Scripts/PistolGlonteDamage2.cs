@@ -64,7 +64,7 @@ public class PistolGlonteDamage2 : MonoBehaviour {
 		if (col.gameObject.tag != "Player")				
 			Instantiate (boom, gameObject.transform.position, Quaternion.identity);
 		Destroy(gameObject);
-		if (col.gameObject.tag == "Enemy" && col.gameObject.name=="Enemy1") {
+		if (col.gameObject.tag == "Enemy" && (col.gameObject.name=="Enemy1" || col.gameObject.name=="Enemy1ToCreate(Clone)"))  {
 			enemy=col.gameObject;
 			eo=enemy.gameObject.GetComponent<EnemyOne>();
 			eo.setLife(damage);

@@ -1,0 +1,80 @@
+fileFormatVersion: 2
+guid: bf742ad29281765429a78be0b2628ac5
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: lock_0
+    21300002: lock_1
+    21300004: lock_2
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 50
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: lock_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 191
+        width: 105
+        height: 181
+      alignment: 9
+      pivot: {x: .492444277, y: .0613636822}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: lock_1
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 0
+        width: 458
+        height: 293
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: lock_2
+      rect:
+        serializedVersion: 2
+        x: 637
+        y: 237
+        width: 133
+        height: 126
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 

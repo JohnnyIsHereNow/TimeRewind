@@ -14,6 +14,8 @@ public class IfPlayerDead : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+	if(GameObject.Find("__PlayButtons")!=null)
+	if(GameObject.Find("__PlayButtons").gameObject.activeInHierarchy==true)
 	if(PlayerController.IsDead){
 			foreach(GameObject g in b){ 
 				g.SetActive(false);

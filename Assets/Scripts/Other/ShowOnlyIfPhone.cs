@@ -4,7 +4,7 @@ using System.Collections;
 public class ShowOnlyIfPhone : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
-#if UNITY_STANDALONE || UNITY_EDITOR || UNITY_PSM
+#if UNITY_STANDALONE || UNITY_EDITOR || UNITY_PSM ||UNITY_WEBPLAYER
 		transform.position = new Vector2(-1000,-1000);
 #endif
 	}

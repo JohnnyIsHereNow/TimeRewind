@@ -99,7 +99,7 @@ public class Enemy3Script : MonoBehaviour {
 		//increase number of enemies killed here
 		if(PlayerPrefs.HasKey("numberOfEnemiesKilled")) 
 			PlayerPrefs.SetInt("numberOfEnemiesKilled",PlayerPrefs.GetInt("numberOfEnemiesKilled")+1);
-		else PlayerPrefs.SetInt("numberOfEnemiesKilled",0);
+		else PlayerPrefs.SetInt("numberOfEnemiesKilled",1);
 		//
 		Destroy (gameObject);
 	}private void InitStyles()

@@ -70,6 +70,11 @@ public class PauseButtonScript : MonoBehaviour {
 						transform.FindChild("ReplayButton").gameObject.SetActive(true);
 						//show backtomenu texture
 						transform.FindChild("BackToMenu").gameObject.SetActive(true);
+						//disable game objects
+			GameObject.Find("Interfata").transform.FindChild("Shield1Button").gameObject.SetActive(false);
+			GameObject.Find("Interfata").transform.FindChild("ShoeButton").gameObject.SetActive(false);
+			GameObject.Find("Interfata").transform.FindChild("KilledEnemies").gameObject.SetActive(false);
+			GameObject.Find("Interfata").transform.FindChild("Shield2Button").gameObject.SetActive(false);
 			
 				}
 		else{
@@ -86,6 +91,11 @@ public class PauseButtonScript : MonoBehaviour {
 			transform.FindChild("ReplayButton").gameObject.SetActive(false);
 			//hide backtomenu texture
 			transform.FindChild("BackToMenu").gameObject.SetActive(false);
+			//enable game objects
+			GameObject.Find("Interfata").transform.FindChild("KilledEnemies").gameObject.SetActive(true);
+			GameObject.Find("Interfata").transform.FindChild("ShoeButton").gameObject.SetActive(true);
+			GameObject.Find("Interfata").transform.FindChild("Shield1Button").gameObject.SetActive(true);
+			GameObject.Find("Interfata").transform.FindChild("Shield2Button").gameObject.SetActive(true);
 			
 		}
 

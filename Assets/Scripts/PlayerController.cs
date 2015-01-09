@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+#if UNITY_STANDALONE || UNITY_IPHONE || UNITY_ANDROID || UNITY_EDITOR
+using Soomla.Profile;
+#endif
 public class PlayerController : MonoBehaviour {
 	bool doubleJump=false;
 	public GameObject shieldForMagnet;
@@ -30,8 +32,13 @@ public class PlayerController : MonoBehaviour {
 	private float secondsToWait=0.5f;
 	private float time;
 	public static bool attackWithKnife=false;
+	public Camera cam;
 	//public Texture buttonA,buttonD,buttonW,buttonQ;
 	// Use this for initialization
+	
+	private RaycastHit2D hit;
+	private Vector3 touchPost;
+	private Vector3 original;
 
 
 
@@ -39,7 +46,13 @@ public class PlayerController : MonoBehaviour {
 
 
 	void Start () {
-		PlayerPrefs.SetInt ("dust", 10000);
+		PlayerPrefs.SetInt ("unlockGun2", 1);
+		PlayerPrefs.SetInt ("unlockGun3", 1);
+		PlayerPrefs.SetInt ("unlockGun4", 1);
+		PlayerPrefs.SetInt ("unlockGun5", 1);
+
+
+		//PlayerPrefs.SetInt ("dust", 10000);
 		levelCompleteInterface=GameObject.Find("LevelComplete");
 		if(!PlayerPrefs.HasKey("TIMEMission")) PlayerPrefs.SetString("TIMEMission","");
 		//PlayerPrefs.DeleteAll();
@@ -68,6 +81,14 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D col){
+		//==========================Check collision with locks================
+		GameObject g;
+		if (col.gameObject.tag == "Locks" && Input.GetKey ("r")) {
+			col.gameObject.GetComponent<Animator>().SetBool("Activated",true);
+		}
+
+
+
 		//==========================Check collision with TIME=================
 
 		if(col.gameObject.tag=="Time" && (!Input.GetKey("q") || !TimeScale.RewindTime) && !IsDead) {
@@ -103,6 +124,7 @@ public class PlayerController : MonoBehaviour {
 		if(col.gameObject.tag=="Dust" && (!Input.GetKey("q") || !TimeScale.RewindTime) && !IsDead) {                             
 											col.gameObject.GetComponent<DustScript>().goup=true;
 		                                  PlayerPrefs.SetInt ("dust", PlayerPrefs.GetInt ("dust") + 10);
+											
 		                                  }
 
 		//==========================Verifica coliziunea cu lada================	
@@ -137,7 +159,11 @@ public class PlayerController : MonoBehaviour {
 			}
 
 			//show LevelCompleteInterface
-			Time.timeScale=0.001f;
+			Time.timeScale=0.00001f;
+			//open app rating page
+#if UNITY_STANDALONE || UNITY_IPHONE || UNITY_ANDROID || UNITY_EDITOR
+			SoomlaProfile.OpenAppRatingPage();
+#endif
 			levelCompleteInterface.transform.FindChild("LevelCompleteInterface").gameObject.SetActive(true);
 			
 		}
@@ -186,14 +212,38 @@ public class PlayerController : MonoBehaviour {
 		}
 
 
-
 	}
 	void OnCollisionExit2D(Collision2D col)
 	{
 		if (col.gameObject.tag == "Ground" || col.gameObject.tag == "Obstacles" || col.gameObject.tag == "Enemy" || col.gameObject.tag == "Untagged")
 		playerAnim.SetBool("Grounded",false);
 	}
-
+	void OnTriggerStay2D(Collider2D col){
+		if (col.gameObject.tag == "Locks") {
+						#if !UNITY_STANDALONE 
+						if (Input.touchCount > 0) {
+								hit = Physics2D.Raycast (cam.ScreenToWorldPoint (Input.touches [0].position), Vector2.zero);
+								touchPost = cam.ScreenToWorldPoint (Input.touches [0].position);
+						}
+		
+						if (hit != null && hit.transform != null && (hit.transform.name == "handler")) {
+								hit.transform.GetComponent<Animator> ().SetBool ("Activated", true);
+						}
+						#endif
+						#if UNITY_STANDALONE || UNITY_EDITOR
+						if (Input.GetMouseButton (0)) {
+								hit = Physics2D.Raycast (cam.ScreenToWorldPoint (Input.mousePosition), Vector2.zero);
+								touchPost = cam.ScreenToWorldPoint (Input.mousePosition);
+						}
+		
+						if (hit != null && hit.transform != null && hit.transform.name == "handler") {
+								if (!Input.GetMouseButton (0)) {
+										hit.transform.GetComponent<Animator> ().SetBool ("Activated", true);
+								}
+						}
+						#endif
+				}
+	}
 
 
 	//
@@ -202,7 +252,10 @@ public class PlayerController : MonoBehaviour {
 	}
 	// Update is called once per frame
 	void Update () {
-		Debug.Log ("VelocityX: " + transform.rigidbody2D.velocity.x);
+
+
+
+		//Debug.Log ("VelocityX: " + transform.rigidbody2D.velocity.x);
 
 		if ((Input.GetKeyDown ("e") || attackbutton.getAtaca()) && !playerAnim.GetBool ("IsDead") && PlayerPrefs.GetInt("weaponInUse")==1 && Time.time-time>secondsToWait) {
 			playerAnim.SetTrigger("AttackWithKnife");
@@ -359,10 +412,13 @@ public class PlayerController : MonoBehaviour {
 //=========================If has not the key============================
 		if (IsDead || !HasTheKey) {
 						GameObject thekey = GameObject.FindGameObjectWithTag("Key");
+						thekey.transform.parent=null;			
+						thekey.transform.rigidbody2D.AddForce(new Vector2(15,15));
 						thekey.transform.collider2D.enabled=true;
-						thekey.transform.parent=null;
 						HasTheKey = false;
 									}
 //=========================End of statament=====================
+
+
 	}
 }

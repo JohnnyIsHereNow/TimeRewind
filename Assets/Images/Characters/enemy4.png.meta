@@ -1,0 +1,113 @@
+fileFormatVersion: 2
+guid: 53920c4abc2476e4da0d1b4bdd51c3b8
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: head
+    21300002: arm1
+    21300004: arm0
+    21300006: engine
+    21300008: body
+    21300010: weapon
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: head
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 614
+        width: 411
+        height: 338
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: arm1
+      rect:
+        serializedVersion: 2
+        x: 647
+        y: 739
+        width: 240
+        height: 173
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: arm0
+      rect:
+        serializedVersion: 2
+        x: 1095
+        y: 784
+        width: 45
+        height: 83
+      alignment: 9
+      pivot: {x: .259971797, y: .133254454}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: weapon
+      rect:
+        serializedVersion: 2
+        x: 1277
+        y: 681
+        width: 250
+        height: 245
+      alignment: 9
+      pivot: {x: .81563282, y: .151812121}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: engine
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 89
+        width: 262
+        height: 349
+      alignment: 9
+      pivot: {x: .485351562, y: .840899706}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: body
+      rect:
+        serializedVersion: 2
+        x: 537
+        y: 34
+        width: 651
+        height: 647
+      alignment: 9
+      pivot: {x: .497052401, y: .209342137}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
