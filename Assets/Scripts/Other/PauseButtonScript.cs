@@ -46,6 +46,12 @@ public class PauseButtonScript : MonoBehaviour {
 			GameObject.Find("Text4").GetComponent<Text>().text="Item already purchase.";
 			
 		}
+		if(PlayerPrefs.GetInt("noads")==1)
+		{
+			GameObject.Find("ButtonNoAds").GetComponent<Button>().interactable=false;
+			GameObject.Find("Text4").GetComponent<Text>().text="Item already purchase.";
+				
+		}
 		}
 
 			if (guiTexture.HitTest (Input.mousePosition)) {						

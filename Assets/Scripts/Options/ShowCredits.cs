@@ -20,7 +20,7 @@ public class ShowCredits : MonoBehaviour {
 	}
 	void Update(){		
 		if(move)
-		GameObject.Find("Canvas").transform.FindChild("ShowCredits").transform.FindChild("Panel").FindChild("Text").transform.Translate(new Vector3(0,0.5f,0));
+		GameObject.Find("Canvas").transform.FindChild("ShowCredits").transform.FindChild("Panel").FindChild("Text").transform.Translate(new Vector3(0,10*Time.deltaTime,0));
 	}
 
 }

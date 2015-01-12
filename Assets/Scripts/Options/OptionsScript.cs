@@ -29,12 +29,12 @@ public class OptionsScript : MonoBehaviour {
 
 	if(soundCheck.isOn){
 			AudioListener.pause=true;
-			messageBox.text="Audio muted";
+			//messageBox.text="Audio muted";
 			PlayerPrefs.SetInt("Audio",0);
 		}
 	if(!soundCheck.isOn && (PlayerPrefs.GetInt("Audio")==0)){
 			AudioListener.pause=false;
-			messageBox.text="Audio is now running";
+			//messageBox.text="Audio is now running";
 			PlayerPrefs.SetInt("Audio",1);
 	}
 	if(resetCheck.isOn){
@@ -45,7 +45,7 @@ public class OptionsScript : MonoBehaviour {
 	}
 	public void checkForCheat(){		
 		if(cheatCodeInput.text.Equals("Give me money")){
-			messageBox.text="Give me money";
+			messageBox.text="You've been rewarded with 500 dust !";
 		}
 		}
 

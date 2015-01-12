@@ -1,9 +1,13 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Other\PauseButtonScript.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Options\OptionsScript.cs">
     <Files>
-      <File FileName="Assets\Scripts\FunctionsToBeCalled.cs" Line="129" Column="3" />
-      <File FileName="Assets\Scripts\Other\PauseButtonScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Notifications\InAppPurchases.cs" Line="106" Column="1" />
+      <File FileName="Assets\OpenIAB-demo\OpenIABTest.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Social\InitializeSocial.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\SocialNotUsed\GoToMenuScene.cs" Line="10" Column="30" />
+      <File FileName="Assets\Scripts\FunctionsToBeCalled.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Options\OptionsScript.cs" Line="50" Column="4" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

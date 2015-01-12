@@ -56,3 +56,7 @@ E:\PROIECTE\UNITY\Unity Projects\Time Rewind\TimeRewind\WindowsVersion\WindowsPh
 E:\PROIECTE\UNITY\Unity Projects\Time Rewind\TimeRewind\WindowsVersion\WindowsPhone8\TimeRewind\obj\ARM\Debug\TimeRewind.dll
 E:\PROIECTE\UNITY\Unity Projects\Time Rewind\TimeRewind\WindowsVersion\WindowsPhone8\TimeRewind\obj\ARM\Debug\TimeRewind.pdb
 E:\PROIECTE\UNITY\Unity Projects\Time Rewind\TimeRewind\WindowsVersion\WindowsPhone8\TimeRewind\obj\ARM\Debug\XapCacheFile.xml
+E:\PROIECTE\UNITY\Unity Projects\Time Rewind\TimeRewind\WindowsVersion\WindowsPhone8\TimeRewind\Bin\ARM\Debug\Data\level6
+E:\PROIECTE\UNITY\Unity Projects\Time Rewind\TimeRewind\WindowsVersion\WindowsPhone8\TimeRewind\Bin\ARM\Debug\Data\sharedassets7.assets
+E:\PROIECTE\UNITY\Unity Projects\Time Rewind\TimeRewind\WindowsVersion\WindowsPhone8\TimeRewind\Bin\ARM\Debug\OpenIAB_W8Plugin.dll
+E:\PROIECTE\UNITY\Unity Projects\Time Rewind\TimeRewind\WindowsVersion\WindowsPhone8\TimeRewind\Bin\ARM\Debug\OpenIAB_W8Plugin.pdb

@@ -4,7 +4,9 @@ using System;
 using System.Globalization;
 
 public class AlarmReceiver : MonoBehaviour {
+#if UNITY_ANDROID && !UNITY_EDITOR
 	AndroidJavaObject nativeObj =null;
+#endif
 
 
  
@@ -19,7 +21,7 @@ public class AlarmReceiver : MonoBehaviour {
 		LocalNotification lc = new LocalNotification();
 		lc.alertBody="Help me win !";
 		lc.applicationIconBadgeNumber=3;
-		lc.fireDate = DateTime.Now.AddSeconds(3);
+		lc.fireDate = DateTime.Now.AddSeconds(7200);
 		lc.repeatInterval=CalendarUnit.Day;
 		NotificationServices.ScheduleLocalNotification(lc);
 		Debug.Log (lc);

@@ -10,6 +10,7 @@ public class FunctionsToBeCalled : MonoBehaviour {
 		aus.SetActive(false);
 	}
 	void Update(){
+
 		//Debug.Log (worldToUnlock);
 	}
 

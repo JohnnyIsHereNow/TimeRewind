@@ -10,15 +10,30 @@ public class SocialOnLevelCompleted : MonoBehaviour {
 #if UNITY_ANDROID || UNITY_IOS || UNITY_EDITOR
 		if(SoomlaProfile.IsLoggedIn(Provider.FACEBOOK))
 		{			
-			FB.Feed(
-				link: "http://iubisoft.com",
-				linkName: "Time Rewind",
-				linkCaption: "Maybe the best game ever - ME",
-				linkDescription: tx.text,
-				callback: LogCallback
+			#if UNITY_ANDROID
+			SoomlaProfile.UpdateStory(
+				Provider.FACEBOOK,                          // Provider
+				"Blabla",                       // Text of the story to post
+				"The story of SOOMBOT (Profile Test App)",  // Name
+				"SOOMBOT Story",                            // Caption
+				"http://about.soom.la/soombots",            // Link to post
+				"http://about.soom.la/.../spockbot.png",    // Image URL
+				"",                                         // Payload
+				null                               // Reward for posting a story
 				);
-			Debug.Log ("Done !");
-			//SoomlaProfile.UpdateStatus(Provider.FACEBOOK,"You should try this game","",null);
+			#endif
+			#if UNITY_IPHONE
+			SoomlaProfile.UpdateStory(
+				Provider.FACEBOOK,                          // Provider
+				"Blabla",                       // Text of the story to post
+				"The story of SOOMBOT (Profile Test App)",  // Name
+				"SOOMBOT Story",                            // Caption
+				"http://about.soom.la/soombots",            // Link to post
+				"http://about.soom.la/.../spockbot.png",    // Image URL
+				"",                                         // Payload
+				null                               // Reward for posting a story
+				);
+			#endif
 		}else{
 			SoomlaProfile.Login(Provider.FACEBOOK);
 		}

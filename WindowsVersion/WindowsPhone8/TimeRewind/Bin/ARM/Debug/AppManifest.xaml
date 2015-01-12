@@ -8,6 +8,7 @@
     <AssemblyPart x:Name="UnityEngine.UI" Source="UnityEngine.UI.dll" />
     <AssemblyPart x:Name="WinRTBridge" Source="WinRTBridge.dll" />
     <AssemblyPart x:Name="WinRTLegacy" Source="WinRTLegacy.dll" />
+    <AssemblyPart x:Name="OpenIAB_W8Plugin" Source="OpenIAB_W8Plugin.dll" />
     <AssemblyPart x:Name="BridgeInterface" Source="BridgeInterface.dll" />
     <AssemblyPart x:Name="UnityPlayer" Source="UnityPlayer.dll" />
   </Deployment.Parts>
