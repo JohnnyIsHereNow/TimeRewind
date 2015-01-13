@@ -23,6 +23,13 @@ public class MovePlatform: MonoBehaviour {
 			if(goDown) goDown=false; else goDown=true;
 		}
 	}
+	void OnCollisionStay2D(Collision2D col){
+		if(col.gameObject.tag=="Player"){
+			col.gameObject.transform.SetParent(transform);
+			col.gameObject.transform.localScale=new Vector3(.8f,.8f,.8f);
+		}
+	}
+
 	
 	public void FixedUpdate(){
 		if (transform.position.x > pos.x) {

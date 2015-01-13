@@ -33,13 +33,16 @@ public class InitializeSocial : MonoBehaviour {
 #if UNITY_ANDROID || UNITY_IPHONE || UNITY_EDITOR
 	IEnumerator getProfilePicture(){
 		pictureNotLoaded=false;
+
 		www = new WWW("https://graph.facebook.com/"+SoomlaProfile.GetStoredUserProfile(Provider.FACEBOOK).ProfileId+"/picture?height=90&type=normal&width=90");
 		//Debug.Log ("https://graph.facebook.com/"+SoomlaProfile.GetStoredUserProfile(Provider.FACEBOOK).ProfileId+"/picture?height=200&type=normal&width=200");
 		while(!www.isDone)
 		{
 			yield return new WaitForSeconds(1);
 		}
+		if(www.isDone){
 		profileImage.sprite=Sprite.Create(www.texture, new Rect(0, 0,90.0f,90.0f), new Vector2(0.5f, 0.5f), 100);
+		}
 	}
 #endif
 	void Update(){

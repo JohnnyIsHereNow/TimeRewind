@@ -16,13 +16,20 @@ public class AddVelocityToPlatform : MonoBehaviour {
 	}
 	private IEnumerator waitSeconds(){
 		yield return new WaitForSeconds(3);
-		AddVelocity();
+		//AddVelocity();
 	}
+	/*
 	// Update is called once per frame
 	void OnCollisionStay2D(Collision2D col){
 		if (col.gameObject.tag == "Player" || col.gameObject.tag == "Enemy") {
-			col.transform.Translate (new Vector2 (movingSpeed, 0));
+			//col.transform.Translate (new Vector2 (movingSpeed, 0));
 			
+		}
+	}*/
+	void OnCollisionStay2D(Collision2D col){
+		if(col.gameObject.tag=="Player"){
+			col.gameObject.transform.SetParent(transform);
+			col.gameObject.transform.localScale=new Vector3(.8f,.8f,.8f);
 		}
 	}
 	private void AddVelocity(){

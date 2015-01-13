@@ -55,7 +55,8 @@ public class TimeScale : MonoBehaviour {
 								i--;
 								transform.position = storePosition [i];
 				}
-				}
+				
+		}
 
 						
 	}

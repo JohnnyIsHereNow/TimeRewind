@@ -2,22 +2,20 @@
 using System.Collections;
 using UnityEngine.UI;
 public class PauseButtonScript : MonoBehaviour {
-	public Texture continuePlay;
-	public Texture pause;
+	//public Texture continuePlay;
+	//public Texture pause;
 	private GameObject cam;
 	private GameObject playmenu;
-	private GameObject text;
 	// Use this for initialization
 	void Start () {
 		cam = GameObject.Find ("Camera");
 		playmenu = GameObject.Find ("__PlayButtons");
-		text=GameObject.Find("TextInformation");
 		//PlayerPrefs.DeleteAll();
 	}
 
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 		if(Time.timeScale!=0){
 			GameObject.Find("TextInformation").GetComponent<Text>().text="";
 		}
@@ -53,15 +51,16 @@ public class PauseButtonScript : MonoBehaviour {
 				
 		}
 		}
-
+		/*
 			if (guiTexture.HitTest (Input.mousePosition)) {						
 			guiTexture.color = new Vector4(0.5f,1f,1f,0.5f);
 				} else {
 			guiTexture.color = Color.white;
 			guiTexture.color = new Vector4(0.4f,0.4f,0.4f,0.4f);
 				}
+				*/
 	}
-	void OnMouseUp(){
+	public void OnMouseUpPause(){
 		if (Time.timeScale != 0.0) {
 						//stop time
 						Time.timeScale = 0.0f;
@@ -69,13 +68,9 @@ public class PauseButtonScript : MonoBehaviour {
 						cam.SetActive (false);
 						playmenu.SetActive(false);
 						//enable UIElements
-						transform.FindChild ("_UIElements").gameObject.SetActive(true);						
-						//change texture
-						gameObject.guiTexture.texture=continuePlay;
-						//show replay texture
-						transform.FindChild("ReplayButton").gameObject.SetActive(true);
-						//show backtomenu texture
-						transform.FindChild("BackToMenu").gameObject.SetActive(true);
+						GameObject.Find ("__PauseButton").transform.FindChild("_UIElements").gameObject.SetActive(true);						
+						//disable pause button
+						GameObject.Find("Interfata").transform.FindChild("PauseMenu").gameObject.SetActive(false);
 						//disable game objects
 			GameObject.Find("Interfata").transform.FindChild("Shield1Button").gameObject.SetActive(false);
 			GameObject.Find("Interfata").transform.FindChild("ShoeButton").gameObject.SetActive(false);
@@ -90,13 +85,9 @@ public class PauseButtonScript : MonoBehaviour {
 			cam.gameObject.SetActive (true);
 			playmenu.SetActive(true);
 			//enable UIElements
-			transform.FindChild ("_UIElements").gameObject.SetActive(false);
-			//change texture
-			gameObject.guiTexture.texture=pause;
-			//hide replay texture
-			transform.FindChild("ReplayButton").gameObject.SetActive(false);
-			//hide backtomenu texture
-			transform.FindChild("BackToMenu").gameObject.SetActive(false);
+			GameObject.Find ("__PauseButton").transform.FindChild("_UIElements").gameObject.SetActive(false);
+			//disable pause button
+			GameObject.Find("Interfata").transform.FindChild("PauseMenu").gameObject.SetActive(true);
 			//enable game objects
 			GameObject.Find("Interfata").transform.FindChild("KilledEnemies").gameObject.SetActive(true);
 			GameObject.Find("Interfata").transform.FindChild("ShoeButton").gameObject.SetActive(true);
@@ -111,36 +102,36 @@ public class PauseButtonScript : MonoBehaviour {
 		if(PlayerPrefs.GetInt("unlockGun2") == 0 && PlayerPrefs.GetInt("dust") >=5000){
 			PlayerPrefs.SetInt("dust",PlayerPrefs.GetInt("dust")-5000);
 			PlayerPrefs.SetInt("unlockGun2",1);
-			text.GetComponent<Text>().text="You've unlocked Modify Pistol.";
+			GameObject.Find("TextInformation").GetComponent<Text>().text="You've unlocked Modify Pistol.";
 		}else 
-			text.GetComponent<Text>().text="You don't have enough dust.";
+			GameObject.Find("TextInformation").GetComponent<Text>().text="You don't have enough dust.";
 
 	}
 	public void unlockGun3(){
 		if(PlayerPrefs.GetInt("unlockGun3") == 0 && PlayerPrefs.GetInt("dust") >=8000){
 			PlayerPrefs.SetInt("dust",PlayerPrefs.GetInt("dust")-8000);
 			PlayerPrefs.SetInt("unlockGun3",1);
-			text.GetComponent<Text>().text="You've unlocked ShotGun.";
+			GameObject.Find("TextInformation").GetComponent<Text>().text="You've unlocked ShotGun.";
 		}else 
-			text.GetComponent<Text>().text="You don't have enough dust.";
+			GameObject.Find("TextInformation").GetComponent<Text>().text="You don't have enough dust.";
 		
 	}
 	public void unlockGun4(){
 		if(PlayerPrefs.GetInt("unlockGun4") == 0 && PlayerPrefs.GetInt("dust") >=10000){
 			PlayerPrefs.SetInt("dust",PlayerPrefs.GetInt("dust")-10000);
 			PlayerPrefs.SetInt("unlockGun4",1);
-			text.GetComponent<Text>().text="You've unlocked SingleShot.";
+			GameObject.Find("TextInformation").GetComponent<Text>().text="You've unlocked SingleShot.";
 		}else 
-			text.GetComponent<Text>().text="You don't have enough dust.";
+			GameObject.Find("TextInformation").GetComponent<Text>().text="You don't have enough dust.";
 		
 	}
 	public void unlockGun5(){
 		if(PlayerPrefs.GetInt("unlockGun5") == 0 && PlayerPrefs.GetInt("dust") >=15000){
 			PlayerPrefs.SetInt("dust",PlayerPrefs.GetInt("dust")-15000);
 			PlayerPrefs.SetInt("unlockGun5",1);
-			text.GetComponent<Text>().text="You've unlocked M4-Carbine.";
+			GameObject.Find("TextInformation").GetComponent<Text>().text="You've unlocked M4-Carbine.";
 		}else 
-			text.GetComponent<Text>().text="You don't have enough dust.";
+			GameObject.Find("TextInformation").GetComponent<Text>().text="You don't have enough dust.";
 		
 	}
 	public void addSpeedy(){
@@ -148,27 +139,27 @@ public class PauseButtonScript : MonoBehaviour {
 		{
 			PlayerPrefs.SetInt("dust", PlayerPrefs.GetInt("dust")-500);
 			PlayerPrefs.SetInt("NumberOfShoes", PlayerPrefs.GetInt("NumberOfShoes")+1);
-			text.GetComponent<Text>().text="One more speedy for the road.";
+			GameObject.Find("TextInformation").GetComponent<Text>().text="One more speedy for the road.";
 		}else 
-			text.GetComponent<Text>().text="You don't have enough dust.";
+			GameObject.Find("TextInformation").GetComponent<Text>().text="You don't have enough dust.";
 	}
 	public void addImmortality(){
 		if(PlayerPrefs.GetInt("dust")>= 500)
 		{
 			PlayerPrefs.SetInt("dust", PlayerPrefs.GetInt("dust")-500);
 			PlayerPrefs.SetInt("NumberOfShields", PlayerPrefs.GetInt("NumberOfShields")+1);
-			text.GetComponent<Text>().text="One more shield for the road.";
+			GameObject.Find("TextInformation").GetComponent<Text>().text="One more shield for the road.";
 		}else 
-			text.GetComponent<Text>().text="You don't have enough dust.";
+			GameObject.Find("TextInformation").GetComponent<Text>().text="You don't have enough dust.";
 	}
 	public void addInvincibility(){
 		if(PlayerPrefs.GetInt("dust")>= 500)
 		{
 			PlayerPrefs.SetInt("dust", PlayerPrefs.GetInt("dust")-500);
 			PlayerPrefs.SetInt("NumberOfShields2", PlayerPrefs.GetInt("NumberOfShields2")+1);
-			text.GetComponent<Text>().text="One more shield for the road.";
+			GameObject.Find("TextInformation").GetComponent<Text>().text="One more shield for the road.";
 		}else 
-			text.GetComponent<Text>().text="You don't have enough dust.";
+			GameObject.Find("TextInformation").GetComponent<Text>().text="You don't have enough dust.";
 	}
 
 	public void unlockOneMoreLevel(){
@@ -178,12 +169,12 @@ public class PauseButtonScript : MonoBehaviour {
 								PlayerPrefs.SetInt ("levelsUnlocked1", PlayerPrefs.GetInt ("levelsUnlocked1") + 1);
 							}else 
 							{
-								text.GetComponent<Text> ().text = "No more levels to be unlocked";
+				GameObject.Find("TextInformation").GetComponent<Text> ().text = "No more levels to be unlocked";
 							}
 				}
 				else
 				{
-				text.GetComponent<Text>().text="You don't have enough dust.";
+			GameObject.Find("TextInformation").GetComponent<Text>().text="You don't have enough dust.";
 				}
 
 }

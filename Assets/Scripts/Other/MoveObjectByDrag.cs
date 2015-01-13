@@ -12,7 +12,7 @@ public class MoveObjectByDrag : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-#if !UNITY_STANDALONE 
+#if (UNITY_ANDROID || UNITY_IOS || UNITY_WP8) && !UNITY_EDITOR
 		if(Input.touchCount>0){
 			hit=Physics2D.Raycast(camera.ScreenToWorldPoint(Input.touches[0].position), Vector2.zero);
 			touchPost = camera.ScreenToWorldPoint(Input.touches[0].position);

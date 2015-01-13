@@ -91,7 +91,7 @@ public class PlayerController : MonoBehaviour {
 
 		//==========================Check collision with TIME=================
 
-		if(col.gameObject.tag=="Time" && (!Input.GetKey("q") || !TimeScale.RewindTime) && !IsDead) {
+		if(col.gameObject.tag=="Time" && !TimeScale.RewindTime && !IsDead) {
 			if(PlayerPrefs.GetString("TIMEMission")=="") PlayerPrefs.SetString("TIMEMission","T");
 			else
 				if(PlayerPrefs.GetString("TIMEMission")=="T") PlayerPrefs.SetString("TIMEMission","TI");
@@ -112,7 +112,7 @@ public class PlayerController : MonoBehaviour {
 
 
 		//==========================Check collision with Magnet================
-		if(col.gameObject.tag=="Magnet" && (!Input.GetKey("q") || !TimeScale.RewindTime) && !IsDead) {    
+		if(col.gameObject.tag=="Magnet" && !TimeScale.RewindTime && !IsDead) {    
 			Destroy(col.gameObject);
 			//make new Magnet Shield
 			Instantiate(shieldForMagnet,transform.position,Quaternion.identity);
@@ -121,36 +121,36 @@ public class PlayerController : MonoBehaviour {
 
 		//==========================Verifica coliziunea cu dust================
 
-		if(col.gameObject.tag=="Dust" && (!Input.GetKey("q") || !TimeScale.RewindTime) && !IsDead) {                             
+		if(col.gameObject.tag=="Dust" && !TimeScale.RewindTime && !IsDead) {                             
 											col.gameObject.GetComponent<DustScript>().goup=true;
 		                                  PlayerPrefs.SetInt ("dust", PlayerPrefs.GetInt ("dust") + 10);
 											
 		                                  }
 
 		//==========================Verifica coliziunea cu lada================	
-		if (col.gameObject.tag == "Chest" && (!Input.GetKey ("q") || !TimeScale.RewindTime) && !IsDead) {
+		if (col.gameObject.tag == "Chest" && !TimeScale.RewindTime && !IsDead) {
 			col.GetComponent<Animator>().SetBool("Open",true);
 				}
 		//==========================Verifica coliziunea cu shield=============
-		if (col.gameObject.tag == "shield" && (!Input.GetKey ("q")  || !TimeScale.RewindTime) && !IsDead) {
+		if (col.gameObject.tag == "shield" && !TimeScale.RewindTime && !IsDead) {
 			PlayerPrefs.SetInt("NumberOfShields1",PlayerPrefs.GetInt("NumberOfShields1")+1);
 			Destroy(col.gameObject);
 		}
 		//==========================Verifica coliziunea cu shield2=============
-		if (col.gameObject.tag == "shield2" && (!Input.GetKey ("q") || !TimeScale.RewindTime) && !IsDead) {
+		if (col.gameObject.tag == "shield2" && !TimeScale.RewindTime && !IsDead) {
 			PlayerPrefs.SetInt("NumberOfShields2",PlayerPrefs.GetInt("NumberOfShields2")+1);
 			Destroy(col.gameObject);
 		}
 
 
 		//==========================Verifica coliziunea cu speedShoe=============
-		if (col.gameObject.tag == "Shoe" && (!Input.GetKey ("q") || !TimeScale.RewindTime) && !IsDead) {
+		if (col.gameObject.tag == "Shoe" && !TimeScale.RewindTime && !IsDead) {
 					Destroy(col.gameObject);
 					PlayerPrefs.SetInt("NumberOfShoes",PlayerPrefs.GetInt("NumberOfShoes")+1);
 				}
 
 		//==========================Verifica coliziunea cu usa===================
-		if (col.gameObject.tag == "Door" && (!Input.GetKey ("q") || !TimeScale.RewindTime) && !IsDead && HasTheKey) {
+		if (col.gameObject.tag == "Door" && !TimeScale.RewindTime && !IsDead && HasTheKey) {
 			//getDust
 			//GetToTheNextLevel
 			if(PlayerPrefs.GetInt("levelInPlay") == PlayerPrefs.GetInt("levelsUnlocked1"))
@@ -177,7 +177,7 @@ public class PlayerController : MonoBehaviour {
 				}
 		//==========================Verifica coliziunea cu cheita================	
 		
-		if (col.gameObject.tag == "Key" && (!Input.GetKey("q") || !TimeScale.RewindTime) && !IsDead) {
+		if (col.gameObject.tag == "Key" && !TimeScale.RewindTime && !IsDead) {
 			HasTheKey=true;
 			if(transform.FindChild("manaj")!=null)
 			col.gameObject.transform.parent=transform.FindChild("manaj");
@@ -413,7 +413,7 @@ public class PlayerController : MonoBehaviour {
 		if (IsDead || !HasTheKey) {
 						GameObject thekey = GameObject.FindGameObjectWithTag("Key");
 						thekey.transform.parent=null;			
-						thekey.transform.rigidbody2D.AddForce(new Vector2(15,15));
+						thekey.transform.rigidbody2D.AddForce(new Vector2(0,15));
 						thekey.transform.collider2D.enabled=true;
 						HasTheKey = false;
 									}

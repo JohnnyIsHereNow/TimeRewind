@@ -20,8 +20,8 @@ public class AlarmReceiver : MonoBehaviour {
 #if UNITY_IPHONE && !UNITY_EDITOR
 		LocalNotification lc = new LocalNotification();
 		lc.alertBody="Help me win !";
-		lc.applicationIconBadgeNumber=3;
-		lc.fireDate = DateTime.Now.AddSeconds(7200);
+		//lc.applicationIconBadgeNumber=3;
+		lc.fireDate = DateTime.Now.AddHours(12);
 		lc.repeatInterval=CalendarUnit.Day;
 		NotificationServices.ScheduleLocalNotification(lc);
 		Debug.Log (lc);

@@ -2,21 +2,31 @@
 using System.Collections;
 
 public class RewindButton : MonoBehaviour {
-
+	
 	public static bool rewind=false;
+	private bool isRewinding=false;
+
+	IEnumerator justRewind(){
+		isRewinding=true;
+		TimeScale.RewindTime=true;
+		RotationTimeScale.rewind=true;
+		yield return new WaitForSeconds(2);
+		isRewinding=false;
+	}
+
+
 	void FixedUpdate(){
-
-
-
 		//Debug.Log("RewindValue: "+getRewind());
 		foreach (Touch touch in Input.touches)
 		if (guiTexture.HitTest(touch.position) && touch.phase!=TouchPhase.Ended){
 			rewind=true;
 		} else rewind =false;
-		if(Input.GetKey("q") || rewind==true) 
-		{	TimeScale.RewindTime=true;
-			RotationTimeScale.rewind=true;
-		} else 
+		if((Input.GetKey("q") || rewind==true) && !isRewinding) 
+		{	
+			StartCoroutine(justRewind());
+
+		} 
+		if(!isRewinding)
 		{TimeScale.RewindTime=false;
 			RotationTimeScale.rewind=false;
 		}
@@ -26,7 +36,7 @@ public class RewindButton : MonoBehaviour {
 	void Start () {
 		rewind = false;
 	}
-	q
+
 	void OnMouseDown(){
 		rewind = true;
 	}

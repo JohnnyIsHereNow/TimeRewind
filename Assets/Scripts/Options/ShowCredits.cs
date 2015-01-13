@@ -13,14 +13,14 @@ public class ShowCredits : MonoBehaviour {
 	}
 	IEnumerator waitSec(){
 
-		yield return new WaitForSeconds(12);		
+		yield return new WaitForSeconds(6);		
 		move=false;
 		GameObject.Find("Canvas").transform.FindChild("ShowCredits").transform.FindChild("Panel").gameObject.SetActive(false);
 		GameObject.Find("Canvas").transform.FindChild("ShowCredits").transform.FindChild("Panel").FindChild("Text").position=v;
 	}
 	void Update(){		
 		if(move)
-		GameObject.Find("Canvas").transform.FindChild("ShowCredits").transform.FindChild("Panel").FindChild("Text").transform.Translate(new Vector3(0,10*Time.deltaTime,0));
+		GameObject.Find("Canvas").transform.FindChild("ShowCredits").transform.FindChild("Panel").FindChild("Text").transform.Translate(new Vector3(0,3*Time.deltaTime,0));
 	}
 
 }
