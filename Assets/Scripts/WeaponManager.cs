@@ -64,7 +64,7 @@ public class WeaponManager : MonoBehaviour {
 		weapons [1].SetActive (false);
 
 
-		if (Input.GetKeyDown ("1") || nextweaponbutton.getNextWeapon ()) {
+		if (Input.GetAxis("Change")!=0 || nextweaponbutton.getNextWeapon ()) {
 						nextweaponbutton.setFalse ();
 						
 								if (activeWeapon < numberOfWeapons ) {
@@ -76,18 +76,6 @@ public class WeaponManager : MonoBehaviour {
 								
 								}
 						}
-				
-		/*
-			if (Input.GetKeyDown ("2")) {
-						if (activeWeapon > 0) {
-								weapons [activeWeapon].SetActive (false);
-								activeWeapon--;
-						} else {
-								weapons [activeWeapon].SetActive (false);
-				activeWeapon = numberOfWeapons-1;
-								}
-				}
-				*/
 		weapons [activeWeapon].SetActive (true);
 		PlayerPrefs.SetInt ("weaponInUse", activeWeapon);
 

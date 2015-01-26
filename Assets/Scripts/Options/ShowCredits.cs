@@ -13,7 +13,7 @@ public class ShowCredits : MonoBehaviour {
 	}
 	IEnumerator waitSec(){
 
-		yield return new WaitForSeconds(6);		
+		yield return new WaitForSeconds(8);		
 		move=false;
 		GameObject.Find("Canvas").transform.FindChild("ShowCredits").transform.FindChild("Panel").gameObject.SetActive(false);
 		GameObject.Find("Canvas").transform.FindChild("ShowCredits").transform.FindChild("Panel").FindChild("Text").position=v;

@@ -10,8 +10,6 @@ public class DisplayTextForUnlockingWorlds : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(Input.GetKey("l")) PlayerPrefs.SetInt("dust",15000);
-		if(Input.GetKey("k")) PlayerPrefs.SetInt("dust",0);
 	if(PlayerPrefs.GetInt("dust") < 2500 )
 		{
 			tex.text="I'm sorry, you do not have enough dust to make this purchase. You only have " + 

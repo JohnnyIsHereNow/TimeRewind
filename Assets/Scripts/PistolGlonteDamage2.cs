@@ -32,9 +32,12 @@ public class PistolGlonteDamage2 : MonoBehaviour {
 	void Update () {
 		if (player.transform.localScale.x == -1)
 			direction = -1;
-		if (Input.GetKey ("d") || moverightbutton.getMoveRight())
+		if (Input.GetAxis ("Horizontal")!=0) {
+			direction=(int)Input.GetAxis("Horizontal");		
+		}
+		if (moverightbutton.getMoveRight())
 			direction = 1;
-		if (Input.GetKey ("a") || moveleftbutton.getMoveLeft())
+		if (moveleftbutton.getMoveLeft())
 			direction = -1;
 		time = time+Time.deltaTime;
 		if (time > maxTime)

@@ -36,12 +36,12 @@ public class GunOneScript : MonoBehaviour {
 
 
 
-		if ((Input.GetKeyDown ("e") || attackbutton.getAtaca()) && !playerAnim.GetBool ("IsDead") && PlayerPrefs.GetInt("weaponInUse")!=0 && Time.time-time>secondsToWait) {
+		if ((Input.GetAxis("Shoot")!=0 || attackbutton.getAtaca()) && !playerAnim.GetBool ("IsDead") && PlayerPrefs.GetInt("weaponInUse")!=0 && Time.time-time>secondsToWait) {
 			playerAnim.SetTrigger("AttackWithGun");
 			//Debug.Log ("Gun");
 		}
 		setSeconds();
-		if((Input.GetKeyDown ("e") || attackbutton.getAtaca()) && !playerAnim.GetBool("IsDead") && Time.time-time>secondsToWait){
+		if((Input.GetAxis("Shoot")!=0 || attackbutton.getAtaca()) && !playerAnim.GetBool("IsDead") && Time.time-time>secondsToWait){
 			time=Time.time;
 			attackbutton.acumNuAtac();
 			Vector3 vec = new Vector3 (pistol.transform.position.x, pistol.transform.position.y, 0);

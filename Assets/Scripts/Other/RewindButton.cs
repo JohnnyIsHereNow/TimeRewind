@@ -21,7 +21,7 @@ public class RewindButton : MonoBehaviour {
 		if (guiTexture.HitTest(touch.position) && touch.phase!=TouchPhase.Ended){
 			rewind=true;
 		} else rewind =false;
-		if((Input.GetKey("q") || rewind==true) && !isRewinding) 
+		if((Input.GetAxis ("Rewind")!=0 || rewind==true) && !isRewinding) 
 		{	
 			StartCoroutine(justRewind());
 

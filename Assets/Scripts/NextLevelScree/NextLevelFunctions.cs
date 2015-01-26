@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
+using Soomla.Profile;
+using Soomla;
 
 public class NextLevelFunctions : MonoBehaviour {
 	private GameObject levelCompleteInterface;
@@ -47,9 +50,73 @@ public class NextLevelFunctions : MonoBehaviour {
 		Application.LoadLevel(Application.loadedLevelName);
 	}
 	public void FacebookShare(){
-	
+		#if UNITY_IPHONE || UNITY_ANDROID || UNITY_EDITOR
+		// When a user updates his/her status, they'll receive a statusReward (free sword).
+		if(SoomlaProfile.IsLoggedIn(Provider.FACEBOOK))
+		{/*			
+			FB.Feed(
+				link: "http://iubisoft.com",
+				linkName: "Time Rewind",
+				linkCaption: "Maybe the best game ever - ME",
+				linkDescription: "Do you have this game ?",
+				callback: LogCallback
+				);*/
+			//	SoomlaProfile.UpdateStatus(Provider.FACEBOOK,"You should try this game","",null);
+			#if UNITY_ANDROID
+			SoomlaProfile.UpdateStory(
+				Provider.FACEBOOK,                          // Provider
+				"Blabla",                       // Text of the story to post
+				"The story of SOOMBOT (Profile Test App)",  // Name
+				"SOOMBOT Story",                            // Caption
+				"http://about.soom.la/soombots",            // Link to post
+				"http://about.soom.la/.../spockbot.png",    // Image URL
+				"",                                         // Payload
+				null                               // Reward for posting a story
+				);
+			#endif
+			#if UNITY_IPHONE
+			SoomlaProfile.UpdateStory(
+				Provider.FACEBOOK,                          // Provider
+				"Blabla",                       // Text of the story to post
+				"The story of SOOMBOT (Profile Test App)",  // Name
+				"SOOMBOT Story",                            // Caption
+				"http://about.soom.la/soombots",            // Link to post
+				"http://about.soom.la/.../spockbot.png",    // Image URL
+				"",                                         // Payload
+				null                               // Reward for posting a story
+				);
+			#endif
+			//SoomlaProfile.OpenAppRatingPage();
+		}
+		else
+		{
+			SoomlaProfile.Login(Provider.FACEBOOK);
+		}
+		#if !(UNITY_IPHONE || UNITY_ANDROID || UNITY_EDITOR)
+		facebookShare.interactable=false;
+		#endif
 	}
 	public void TwiterShare(){
-
+		
+		#if UNITY_IPHONE || UNITY_ANDROID || UNITY_EDITOR
+		// When a user updates his/her status, they'll receive a statusReward (free sword).
+		if(SoomlaProfile.IsLoggedIn(Provider.TWITTER))
+		{
+			SoomlaProfile.UpdateStatus(Provider.TWITTER,"You should try this game","",null);
+			//give reward
+			PlayerPrefs.SetInt("dust",PlayerPrefs.GetInt("dust")+20);
+			//disable the button			
+			PlayerPrefs.SetInt("TwitterTweet",1);
+		//	twitterTweet.interactable=false;
+		}
+		else
+		{
+			SoomlaProfile.Login(Provider.TWITTER);
+		}
+		#endif
+		#if !(UNITY_IPHONE || UNITY_ANDROID || UNITY_EDITOR)
+		twitterTweet.interactable=false;
+		#endif
+		#endif
 	}
 }

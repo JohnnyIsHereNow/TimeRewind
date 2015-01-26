@@ -83,7 +83,7 @@ public class PlayerController : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D col){
 		//==========================Check collision with locks================
 		GameObject g;
-		if (col.gameObject.tag == "Locks" && Input.GetKey ("r")) {
+		if (col.gameObject.tag == "Locks" && Input.GetAxis("Activated")==1) {
 			col.gameObject.GetComponent<Animator>().SetBool("Activated",true);
 		}
 
@@ -172,7 +172,7 @@ public class PlayerController : MonoBehaviour {
 	
 	void OnCollisionEnter2D(Collision2D col)
 	{	
-		if (col.gameObject.tag == "Ground" && !Input.GetKey("a") && !Input.GetKey("d")) {
+		if (col.gameObject.tag == "Ground" && Input.GetAxis("Horizontal")==0) {
 			transform.rigidbody2D.velocity=new Vector2(0,transform.rigidbody2D.velocity.y);
 				}
 		//==========================Verifica coliziunea cu cheita================	
@@ -257,7 +257,7 @@ public class PlayerController : MonoBehaviour {
 
 		//Debug.Log ("VelocityX: " + transform.rigidbody2D.velocity.x);
 
-		if ((Input.GetKeyDown ("e") || attackbutton.getAtaca()) && !playerAnim.GetBool ("IsDead") && PlayerPrefs.GetInt("weaponInUse")==1 && Time.time-time>secondsToWait) {
+		if ((Input.GetAxis("Shoot")>0 || attackbutton.getAtaca()) && !playerAnim.GetBool ("IsDead") && PlayerPrefs.GetInt("weaponInUse")==1 && Time.time-time>secondsToWait) {
 			playerAnim.SetTrigger("AttackWithKnife");
 			time=Time.time;
 			attackWithKnife=true;
@@ -349,24 +349,24 @@ public class PlayerController : MonoBehaviour {
 
 
 		//jumps sideways
-		if ((Input.GetKey ("d") || moverightbutton.getMoveRight()) && !playerAnim.GetBool ("Jump") && !playerAnim.GetBool ("IsDead")) {
+		if ((Input.GetAxis("Horizontal")>0 || moverightbutton.getMoveRight()) && !playerAnim.GetBool ("Jump") && !playerAnim.GetBool ("IsDead")) {
 			speed=maxspeed;
 			rigidbody2D.velocity = (new Vector2 (velocityy-2, rigidbody2D.velocity.y));
 			moving=true;
 			direction=0;
-			if(Input.GetKeyDown("w") || jumpbutton.getJump()){
+			if(Input.GetAxis("Jump")>0 || jumpbutton.getJump()){
 				rigidbody2D.velocity = (new Vector2 (velocityx-1, velocityy-2));
 				playerAnim.SetBool ("Jump", true);
 				playerAnim.SetBool ("Grounded", false);
 			}
 		}
 		//jumps sideways left
-		if ((Input.GetKey ("a") || moveleftbutton.getMoveLeft()) && !playerAnim.GetBool ("Jump") && !playerAnim.GetBool ("IsDead")) {
+		if ((Input.GetAxis("Horizontal")<0 || moveleftbutton.getMoveLeft()) && !playerAnim.GetBool ("Jump") && !playerAnim.GetBool ("IsDead")) {
 			speed=maxspeed;
 			rigidbody2D.velocity = (new Vector2 (-velocityy-2, rigidbody2D.velocity.y));
 			moving=true;
 			direction=1;
-			if(Input.GetKey("w") || jumpbutton.getJump()){
+			if(Input.GetAxis("Jump")>0 || jumpbutton.getJump()){
 				rigidbody2D.velocity = (new Vector2 (-velocityx-1, velocityy-2));
 				playerAnim.SetBool ("Jump", true);
 				playerAnim.SetBool ("Grounded", false);
@@ -375,25 +375,27 @@ public class PlayerController : MonoBehaviour {
 
 
 		// JUMPS STRAIT
-		if ((Input.GetKeyDown("w") || jumpbutton.getJump()) && !playerAnim.GetBool("Jump") && !playerAnim.GetBool("IsDead")) {
+		if ((Input.GetAxis("Jump")!=0 || jumpbutton.getJump()) && !playerAnim.GetBool("Jump") && !playerAnim.GetBool("IsDead")) {
 			rigidbody2D.velocity = (new Vector2 (rigidbody2D.velocity.x, velocityy-2));
 			playerAnim.SetBool ("Jump", true);
 			playerAnim.SetBool ("Grounded", false);
 		}
 		//jump to the right
+
 		if (playerAnim.GetBool ("Jump") && !playerAnim.GetBool ("IsDead")) {
 
-			if ((Input.GetKeyDown ("a")|| moveleftbutton.getMoveLeft()) && !moving) {
+			if ((Input.GetAxis("Horizontal")<0 || moveleftbutton.getMoveLeft()) && !moving) {
 				moving = true;
 				direction =1;
 				rigidbody2D.velocity = (new Vector2 (-velocityx-1, rigidbody2D.velocity.y));
 			}
-			if ((Input.GetKeyDown ("d") || moverightbutton.getMoveRight()) && !moving) {
+			if ((Input.GetAxis("Horizontal")>0 || moverightbutton.getMoveRight()) && !moving) {
 				moving = true;
 				direction =0;
 				rigidbody2D.velocity = (new Vector2 (velocityx-1, rigidbody2D.velocity.y));
 			}
 		}
+
 
 
 //=========================If it has the key=============================
@@ -413,7 +415,7 @@ public class PlayerController : MonoBehaviour {
 		if (IsDead || !HasTheKey) {
 						GameObject thekey = GameObject.FindGameObjectWithTag("Key");
 						thekey.transform.parent=null;			
-						thekey.transform.rigidbody2D.AddForce(new Vector2(0,15));
+						//thekey.transform.rigidbody2D.AddForce(new Vector2(0,15));
 						thekey.transform.collider2D.enabled=true;
 						HasTheKey = false;
 									}

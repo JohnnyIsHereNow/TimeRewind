@@ -91,7 +91,7 @@ public class CheckMissions : MonoBehaviour {
 		if(missionOne==4 || missionTwo==4){
 					number=missionOne;
 					if(missionTwo==4) number=missionTwo;
-			if(Input.GetKeyDown("q") || RewindButton.rewind==true){
+			if(RewindButton.rewind==true){
 				st=(PlayerPrefs.GetString(""+number)).Split(',');
 				if(int.Parse(st[4])<3)
 				PlayerPrefs.SetString(""+st[0],""+st[0]+","+st[1]+","+st[2]+","+st[3]+","+(int.Parse(st[4])+1));
